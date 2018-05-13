@@ -1,0 +1,35 @@
+{
+  "name": "theme-builder",
+  "version": "1.0.0",
+  "description": "Build tools for all my WordPress themes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WordPress",
+    "theme",
+    "css",
+    "grid"
+  ],
+  "author": "Teslim Adeyemo",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^8.3.0",
+    "browsersync": "0.0.1-security",
+    "css-mqpacker": "^6.0.2",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-deporder": "^1.1.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "postcss-assets": "^5.0.0",
+    "save-dev": "^2.0.0"
+  }
+}

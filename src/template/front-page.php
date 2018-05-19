@@ -9,7 +9,7 @@ get_header('front');
             <section class="brand-strip">
                 <a href="http://uniabidjan.com" rel="home" class="logo">UniAbidjan</a>
                 <button id="search-toggle">Search</button>
-                <button id="menu-toggle"></button>
+                <button id="menu-toggle">  Menu</button>
             </section>
             <section class="brand__splash">
                 <section class="brand__panel">

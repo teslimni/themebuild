@@ -44,13 +44,12 @@ if (! function_exists('uni_setup')) :
         add_theme_support('post-thumbnails');
         add_image_size('big_feature', 1287, 460, true); // for news feature and admission feature
         add_image_size('small_thumb', 300, 200, true);
-        add_image_size('event_thumb', 300, 300, true);
         add_image_size('medium_thumb', 410, 255, true); // for academic and campus section thumbnails
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
-            'home' => esc_html__('Main Menu', 'uni'),
-            'inner' => esc_html__('Secondary Menu', 'uni'),
+            'main' => esc_html__('Main Menu', 'uni'),
+            'secondary' => esc_html__('Secondary Menu', 'uni'),
         ));
 
         /*
@@ -70,6 +69,9 @@ if (! function_exists('uni_setup')) :
             'default-color' => 'ffffff',
             'default-image' => '',
         )));
+
+        // Add theme support for the in-built custom Post  Formats
+        add_theme_support('post-formats', ['gallery', 'quote', 'video', 'audio', 'chat']);
 
         // Add theme support for selective refresh for widgets.
         add_theme_support('customize-selective-refresh-widgets');

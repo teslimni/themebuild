@@ -4,20 +4,26 @@ html:root {
     --secondary-color: #00772c;
     --brand-background: #0a479f;
     --button-hover: #2b71d6;
-    --body-font: 1.6rem;
-    --small-heading-size: 1.3rem;
     --theme-news: #f9f6ef;
     --theme-events: #2f2424;
     --theme-default: #fff;
+    --global-font: 62.5%;
+    --body-font: --global-font;
+    --small-heading-size: 1.3rem;
+}
+
+html {
+    font-size: var(--global-font);
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 body {
+    box-sizing: border-box;
     font-family: Roboto, sans-serif;
-    font-size: 1em;
+    font-size: 1.8rem;
     line-height: 1.5;
     margin: 0;
     min-height: 100vh;
@@ -29,7 +35,7 @@ hr {
     border-right: 0;
     border-bottom: 1px solid #999;
     border-left: 0;
-    margin: 1.25em 0;
+    margin: 1.25rem 0;
     box-sizing: content-box;
     height: 0;
     overflow: visible;
@@ -57,20 +63,27 @@ img {
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: minmax(40px, auto);
+    grid-auto-rows: minmax(4rem, auto);
 }
 
 .brand-strip {
     background: var(--brand-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .15), 0 3px 3px rgba(0, 0, 0, .15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15), 0 .3rem .3rem rgba(0, 0, 0, .15);
     display: flex;
     position: fixed;
     width: 100%;
 }
 
+.site-branding {
+    margin-left: 3rem;
+    margin-right: auto;
+    margin-top: .7rem;
+    padding-bottom: .2rem;
+}
+
 .brand-strip,
 .logo,
-#menu-toggle,
+.menu-toggle,
 #search-toggle {
     z-index: 9999;
 }
@@ -82,37 +95,37 @@ img {
     flex: 1 0 auto;
     font-size: 0/0 a;
     font-weight: 700;
-    min-height: 11px;
-    margin: 2px 0 0 20px;
-    padding: 5px;
+    min-height: 1.1rem;
+    margin: .2rem 0 0 2rem;
+    padding: .5rem;
     text-decoration: none;
     text-shadow: none;
-    width: 162px;
+    width: 16.2rem;
 }
 
 #search-toggle:before {
     content: '\1F50D';
 }
 
-#menu-toggle:before {
+.menu-toggle:before {
     content: '\2630 ';
 }
 
 #search-toggle,
-#menu-toggle {
+.menu-toggle {
     background: none;
     border: none;
     color: #fff;
     font-family: Roboto, sans-serif;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    padding: 15px;
+    padding: 1.5rem;
 }
 
 #search-toggle:hover,
-#menu-toggle:hover {
-    background: var(--brand-background);
-    padding: 15px;
+.menu-toggle:hover {
+    background: darken($brand-background, 20%);
+    padding: 1.5rem;
 }
 
 .brand__splash {
@@ -128,7 +141,7 @@ img {
 .brand__panel {
     color: #fff;
     width: 100%;
-    height: 595px;
+    height: 59.5rem;
     position: relative;
     transition: height .1s ease;
 }
@@ -149,17 +162,19 @@ img {
     padding: 0;
     z-index: 50;
     margin: auto;
-    font-size: 3em;
+    font-size: 5rem;
     font-weight: 700;
     transition: font-size 1s ease;
-    text-shadow: 0 0 30px rgba(0, 0, 0, .7);
+    text-shadow: 0 0 .3rem rgba(0, 0, 0, .7);
 }
 
 .splash__scroller {
     bottom: .25em;
+    color: #fff;
     width: 100%;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 3rem;
+    letter-spacing: 3;
     line-height: 1.4;
     margin: 0;
     padding: 3em 0 0;
@@ -172,9 +187,17 @@ img {
     padding: 0;
     z-index: 50;
     font-weight: 600;
+    a {
+        color: #fff;
+        letter-spacing: 3;
+        &:hover {
+            color: #fff;
+        }
+    }
 }
 
 .scroll__down:after {
+    color: #fff;
     content: "\25bc";
     display: block;
     text-align: center;
@@ -188,8 +211,8 @@ img {
     padding: 0;
     position: absolute;
     margin: auto;
-    min-width: calc(100% + 1px);
-    min-height: calc(100% + 1px);
+    min-width: calc(100% + .1rem);
+    min-height: calc(100% + .1rem);
     overflow: hidden;
     width: auto;
     height: auto;
@@ -204,18 +227,19 @@ img {
 
 .sr-only-element {
     border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
+    clip: rect(.1rem, .1rem, .1rem, .1rem);
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
-    height: 1px;
+    height: .1rem;
     position: absolute;
-    width: 1px;
+    width: .1rem;
     overflow: hidden;
     white-space: nowrap;
     padding: 0;
 }
 
 main.main {
+    margin-top: -4rem;
     position: relative;
     z-index: 1;
 }
@@ -243,27 +267,28 @@ body.main {
 }
 
 .collection__header {
-    font-size: 1.9rem;
+    font-size: 4rem;
 }
 
 .collection__kicker {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    font-size: 1.8rem;
 }
 
 .post-category {
     color: var(--secondary-color);
-    font-size: .6em;
+    font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;
 }
 
 .article__content h3 {
-    font-size: .7em;
+    font-size: 2rem;
 }
 
 .article__content h3 a {
@@ -280,11 +305,12 @@ body.main {
     background: var(--primary-color);
     border-radius: 5px;
     color: #fff;
-    display: inline-block;
-    font-size: 1.2rem;
+    display: block;
+    font-size: 2rem;
     font-weight: 700;
     margin: 10px auto;
     padding: .9em;
+    text-align: center;
     transition: background-color .5s ease;
 }
 
@@ -293,7 +319,7 @@ body.main {
 }
 
 .more_events {
-    font-size: 1.2em;
+    font-size: 2rem;
 }
 
 .cta a,
@@ -311,19 +337,22 @@ body.main {
 /* Card */
 
 .card {
-    border: 1px solid #eee;
-    border-radius: 5px;
-    box-shadow: 0 3px 8px 0 #ccc;
-    margin: 10px 20px;
-    padding: 10px;
-    width: calc(100% - 40px);
+    border: .1rem solid #eee;
+    border-radius: .5rem;
+    box-shadow: 0 .3rem .8rem 0 #ccc;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    width: calc(100% - 4rem);
 }
 
 .newsletter {
     background: #fff;
     color: #000;
-    padding: 25px 20px;
+    padding: 2.5rem 2rem;
     text-align: center;
+    &__heading {
+        font-size: 4rem;
+    }
 }
 
 .input-wrapper {
@@ -336,17 +365,17 @@ body.main {
     width: 100%;
     background-color: transparent;
     overflow: visible;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .newsletter form [type=email] {
     background-color: transparent;
     display: block;
-    font-size: 1em;
+    font-size: 1.6rem;
     padding: .6666666667em 3.8888888889em .6666666667em 3em;
     width: 100%;
     margin: 0;
-    border: 1px solid #999;
+    border: .1rem solid #999;
     border-radius: 0;
     box-shadow: inset 0 1px 3px hsla(0, 0%, 7%, .06);
     box-sizing: border-box;
@@ -369,13 +398,13 @@ body.main {
     transition: background-color .5s ease;
     user-select: none;
     width: 100%;
-    font-size: 1.25em;
+    font-size: 2rem;
     margin-bottom: 0
 }
 
 .collection {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
 }
 
 .newsletter form [type=submit]:hover {
@@ -395,7 +424,7 @@ body.main {
 .uniabj__header-container,
 .explore__heading-container {
     text-align: center;
-    padding: 20px;
+    padding: 2rem;
 }
 
 .event__heading-container p,
@@ -403,7 +432,7 @@ body.main {
 .facts__heading-container p,
 .admission__heading-container p,
 .uniabj__header-container p {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
 }
 
 .event__items,
@@ -417,8 +446,8 @@ body.main {
 .admission__items,
 .uniabj__items,
 .colophone {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .event__heading,
@@ -432,7 +461,7 @@ body.main {
 .uniabj__heading,
 .health__heading,
 .explore__heading {
-    font-size: 1.9rem;
+    font-size: 4rem;
     margin-bottom: 0;
     margin-top: 0;
 }
@@ -442,7 +471,7 @@ body.main {
 }
 
 .learning__header {
-    font-size: 1.25rem;
+    font-size: 2.5rem;
 }
 
 .explore__heading,
@@ -452,7 +481,7 @@ body.main {
 
 .event__items figure {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .event__heading {
@@ -466,11 +495,11 @@ body.main {
 .date {
     align-items: center;
     background: #544948;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .15), 0 3px 3px rgba(0, 0, 0, .15);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .15), 0 .3rem .3rem rgba(0, 0, 0, .15);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 18px;
+    padding-top: 1.8rem;
     width: 20%;
 }
 
@@ -479,44 +508,55 @@ body.main {
     display: block;
 }
 
+.month {
+    font-size: 1.8rem;
+}
+
 .day {
-    font-size: 1.6em;
+    font-size: 2.8rem;
     font-weight: 700;
 }
 
 .event__content {
     background: #fff;
-    padding: 16px;
+    padding: 1.6rem;
     width: 80%;
 }
 
-.event__content .tag {
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-
-.event__content a {
-    color: #000;
-    text-decoration: none;
-}
-
-.event__content a:hover {
-    color: var(--secondary-color);
-}
-
-.event__content time {
-    color: #000;
+.event__content {
+    .tag {
+        color: var(--secondary-color);
+        font-weight: 700;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+    }
+    h3 {
+        font-size: 2rem;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+    time {
+        color: #000;
+        font-size: 1.8rem;
+    }
 }
 
 .academic,
 .theme-research {
     background: var(--theme-default);
     color: #000;
+    font-size: 1.8rem;
 }
 
 .theme-academic .jump-link,
 .health__info .jump-link,
-.campus-link .jump-link {
+.campus-link a,
+.info-link a {
     color: var(--brand-color);
     font-weight: 700;
     text-decoration: none;
@@ -532,7 +572,7 @@ ul.courses,
 ul.links-inline {
     list-style: none;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 2rem;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -558,7 +598,7 @@ ul.links-inline li:first-of-type:before {
 ul.courses li a,
 ul.links-inline li a {
     color: var(--brand-color);
-    padding-bottom: 8px;
+    padding-bottom: .8rem;
     text-decoration: none;
 }
 
@@ -568,14 +608,14 @@ ul.links-inline li a {
 
 ul.courses li a:hover {
     color: var(--button-hover);
-    border-bottom: solid var(--brand-color) 3px;
+    border-bottom: solid var(--brand-color) .3rem;
     transform: scaleX(0);
     transition: all .15s ease-out;
     visibility: visible;
 }
 
 ul.links-inline li a:hover {
-    border-bottom: solid #fff 3px;
+    border-bottom: solid #fff .3rem;
     color: #fff;
     transform: scaleX(0);
     transition: all .15s ease-out;
@@ -588,7 +628,7 @@ ul.links-inline:before {
     display: block;
     margin: .8em auto;
     width: 40%;
-    border-top: 1px solid hsla(0, 0%, 80%, .5);
+    border-top: .1rem solid hsla(0, 0%, 80%, .5);
 }
 
 ul.courses li a:after,
@@ -628,13 +668,14 @@ picture img {
 
 .quote p {
     font-weight: 400;
-    font-size: 1.5625em;
+    font-size: 2.5rem;
     line-height: 1.35;
     margin-bottom: .8em;
     transition: font-size .3s ease-out;
 }
 
 .quote__item {
+    font-size: 1.8rem;
     position: relative;
     z-index: 1;
     text-align: center;
@@ -642,11 +683,11 @@ picture img {
     padding-bottom: 5.9604644775em;
     transition: all .3s ease-out;
     opacity: 1;
-    text-shadow: 0 0 6px #000;
+    text-shadow: 0 0 .6rem #000;
 }
 
 .attribution p {
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-style: italic;
 }
 
@@ -655,8 +696,8 @@ picture img {
     margin: auto;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    min-width: calc(100% + 1px);
-    min-height: calc(100% + 1px);
+    min-width: calc(100% + .1rem);
+    min-height: calc(100% + .1rem);
     overflow: hidden;
     width: auto;
     height: auto;
@@ -674,7 +715,7 @@ picture img {
 
 .quote__item .jump-link {
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .quote__item .jump-link a {
@@ -687,9 +728,9 @@ picture img {
 }
 
 .research__items figure {
-    width: calc(100% - 40px);
+    width: calc(100% - 4rem);
     float: left;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     font-size: 1.25em;
     text-align: center;
     font-weight: 400;
@@ -744,15 +785,15 @@ figcaption {
 }
 
 .learning {
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
 .learning__info {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .learning__info p {
-    margin-top: 0;
+    margin-top: 1.5rem;
 }
 
 .explore {
@@ -768,10 +809,10 @@ figcaption {
 
 @media only screen and (min-width: 1024px) {
     .news header h2 {
-        font-size: 2em;
+        font-size: 4rem;
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 30px;
+        padding-top: 3rem;
     }
     .news .content {
         display: grid;
@@ -805,16 +846,16 @@ figcaption {
     .academic .content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 30px;
+        grid-column-gap: 3rem;
     }
     .academic .content {
         grid-template-columns: repeat(3, 1fr);
     }
     .academic .content h3 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     .academic .content p {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
     .event__heading,
     .academic__heading,
@@ -824,10 +865,10 @@ figcaption {
     .campus__heading,
     .admission__heading,
     .uniabj__heading {
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .health__heading-container {
-        margin-bottom: 45px;
+        margin-bottom: 4.5rem;
     }
     .event__heading-container p,
     .academic__heading-container p,
@@ -836,13 +877,13 @@ figcaption {
     .campus__heading-container p,
     .admission__heading-container p,
     .uniabj__heading-container p {
-        font-size: 1.5rem;
-        margin: 5px auto;
+        font-size: 2.5rem;
+        margin: .5rem auto;
         width: 70%;
     }
     .event__items {
-        padding-top: 30px;
-        padding-bottom: 80px;
+        padding-top: 3rem;
+        padding-bottom: 8rem;
     }
     .event__items figure {
         display: grid;
@@ -872,14 +913,14 @@ figcaption {
         z-index: 1;
     }
     .event__content .tag {
-        margin-top: 54px;
+        margin-top: 5.4rem;
     }
     .date {
         font-weight: 300;
-        left: 24px;
-        padding: 5px;
+        left: 2.4rem;
+        padding: .5rem;
         position: absolute;
-        top: 25%;
+        top: 38%;
         z-index: 10;
     }
     .more_events {
@@ -894,14 +935,14 @@ figcaption {
         display: flex;
         justify-content: space-evenly;
         width: 70%;
-        margin: 0 auto 20px auto;
+        margin: 0 auto 2rem auto;
     }
     ul.courses li {
-        border-top: 0px;
+        border-top: 0;
         position: relative;
         display: inline-block;
         padding: 0 .5555555556em;
-        border-top: 0px solid #fff;
+        border-top: 0 solid #fff;
     }
     ul.courses li a:after {
         position: absolute;
@@ -911,8 +952,8 @@ figcaption {
         top: 50%;
         -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
-        border-right: 2px solid #000;
-        border-top: 0px solid #fff;
+        border-right: .2rem solid #000;
+        border-top: 0 solid #fff;
     }
     ul.courses li::before {
         border-top: none;
@@ -926,7 +967,7 @@ figcaption {
         width: 60%;
     }
     .schools__heading-container {
-        margin-top: 50px;
+        margin-top: 5rem;
     }
     .research-grid {
         display: grid;
@@ -950,7 +991,7 @@ figcaption {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr auto;
-        grid-gap: 20px 20px;
+        grid-gap: 2rem 2rem;
     }
     .health .cta,
     .campus .cta {
@@ -960,7 +1001,7 @@ figcaption {
         display: grid;
         grid-template-columns: repeat(3, auto);
         grid-template-rows: 1fr auto;
-        grid-gap: 20px 30px;
+        grid-gap: 2rem 3rem;
     }
     .admission-grid section:first-of-type {
         grid-column: 1/4;
@@ -973,17 +1014,17 @@ figcaption {
     grid-column: 2/4
 } */
     .admission__info img {
-        height: 300px;
+        height: 30rem;
     }
     .admission .cta {
         grid-column: 1/3;
-        margin-top: 50px;
+        margin-top: 5rem;
     }
     .learning__header {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
     .learning__info p {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
     .explore {
         padding-top: 6rem;
@@ -992,4 +1033,14 @@ figcaption {
         margin-bottom: 0;
         margin-top: 0;
     } */
+}
+
+.site-content {
+    margin: 0 auto;
+    max-width: 114rem;
+    width: 90%;
+}
+
+footer {
+    font-size: 1.6rem;
 }

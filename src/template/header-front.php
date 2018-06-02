@@ -46,14 +46,11 @@
             </section>
             <div class="menu-overlay"></div>
             <nav id="site-navigation" class="main-navigation">
-                
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'main',
-                        'menu_id' => 'main-menu',
-                    )); ?>
-                
-
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'main',
+                    'menu_id' => 'main-menu',
+                )); ?>
             </nav>
             <section class="brand__splash">
                 <section class="brand__panel">
@@ -65,7 +62,7 @@
                         </a>
                     </p>
                     <picture>
-                        <img class="splash__img" src="<?php bloginfo('template_directory'); ?>/img/Abidjan1.jpeg" role="presentation" alt="" srcset="">
+                        <img class="splash__img">
                     </picture>
                 </section>
             </section>

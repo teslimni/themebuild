@@ -143,7 +143,7 @@ gulp.task('browsersync', () => {
 
 gulp.task('watch', ['browsersync'], () => {
     // Page changes
-    gulp.watch(php.src, ['php'], browsersync ? browsersync.reload : {});
+    // gulp.watch(php.src, ['php'], browsersync ? browsersync.reload : {});
 
     //  Image changes
 

@@ -76,6 +76,9 @@
     .current-menu-item>a,
     .current_page_ancestor>a,
     .current-menu-ancestor>a {}
+    .category-undergraduate & {
+        display: none;
+    }
 }
 
 .extra-nav {
@@ -140,5 +143,21 @@
         float: right;
         text-align: right;
         width: 50%;
+    }
+}
+
+.menu-main-container {
+    .logged-in & {
+        margin-top: 5rem;
+    }
+}
+
+.menu-undergrad-menu-container {
+
+    @media screen and (min-width: 900px) {
+        position: fixed;
+    }
+    @media screen and (max-width: 768px) {
+        position: relative;
     }
 }

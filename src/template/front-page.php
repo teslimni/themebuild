@@ -9,7 +9,7 @@ get_header('front');
         <main class="main" id="main" role="main" tabindex="-1">
             <h2 class="sr-only-element" id="main-content">Main Content</h2>
             <section class="collections">
-                <section class="collection news">
+                <section id="news" class="collection news">
                     <?php $args = array(
                         'posts_per_page' => 5,
                         'category_name' => 'news',
@@ -42,16 +42,17 @@ get_header('front');
                             </div>
                         </article>
                         <?php endwhile; ?>
+                        <section class="cta">
+                            <a href="#">More Uniabidjan News</a>
+                        </section>
 
                         <?php wp_reset_postdata(); ?>
                         <?php endif; ?>
                     
-                        <section class="cta">
-                            <a href="new.uniabidjan.com">More Uniabidjan News</a>
-                        </section>
+                        
                     </div>
                 </section>
-                <section class="collection newsletter">
+                <section id="newsletter" class="collection newsletter">
                     <h2 class="newsletter__heading">Get daily news updates from
                         <em>UniAbidjan Report</em>
                     </h2>
@@ -62,7 +63,7 @@ get_header('front');
                         <input type="submit" value="Sign Up" name="subscribe">
                     </form>
                 </section>
-                <section class="collection events">
+                <section id="events" class="collection events">
                     <div class="event__items">
                         <div class="event__heading-container">
                             <h2 class="event__heading">UniAbidjan Events</h2>
@@ -110,7 +111,7 @@ get_header('front');
                         </div>
                     </div>
                 </section>
-                <section class="collection academic theme-academic">
+                <section id="academic" class="collection academic theme-academic">
                     <div class="academic__items">
                         <div class="academic__heading-container">
                             <h2 class="academic__heading">Academics</h2>
@@ -176,7 +177,7 @@ get_header('front');
                         </div>
                     </section>
                 </section>
-                <section class="quote">
+                <section id="quote" class="quote">
                     <picture>
                         <img class="bg-img" src="#" alt="" srcset="">
                     </picture>
@@ -188,7 +189,7 @@ get_header('front');
                     </div>
                 </section>
                    
-                <section class="collection campus">
+                <section id="campus" class="collection campus">
                     <div class="campus__items">
                         <header class="campus__heading-container">
                             <h2 class="collection__header campus__heading">Campus Life</h2>
@@ -227,7 +228,7 @@ get_header('front');
                     </div>
                 </section>
 
-                <section class="collection admission">
+                <section id="admission" class="collection admission">
                     <div class="admission__items">
                         <header class="admission__heading-container">
                             <h2 class="admission__heading collection__header">Admission</h2>
@@ -289,7 +290,7 @@ get_header('front');
                     </div>
                 </section>
 
-                <section class="collection uniabj">
+                <section id="uni" class="collection uniabj">
                     <div class="uniabj__items">
                         <header class="uniabj__header-container">
                             <h2 class="collection__header uniabj__heading">About UniAbidjan</h2>
@@ -303,7 +304,7 @@ get_header('front');
                     </div>
                 </section>
 
-                <section class="collection explore">
+                <section id="explore" class="collection explore">
                     <div class="explore__items">
                         <header class="explore__heading-container">
                             <h2 class="collection__header explore__heading">

@@ -17,7 +17,7 @@ get_header('front');
                     <?php $query = new WP_Query($args); ?>
                     <?php if ($query->have_posts()) : ?>
                     <header>
-                        <h2 class="collection__header">UniAbidjan Today</h2>
+                        <h2 id="bookmark" class="collection__header">UniAbidjan Today</h2>
                         <p class="collection__kicker">The latest news from UniAbidjan</p>
                     </header>
                     <div class="content">
@@ -25,7 +25,7 @@ get_header('front');
                         <article class="card">
                             <div class="article__inner">
                                 <figure>
-                                    <a href="http://#">
+                                    <a href="<?php the_permalink();?>">
                                         <?php the_post_thumbnail('big_feature'); ?>
                                     </a>
                                 </figure>
@@ -34,7 +34,7 @@ get_header('front');
                                         <p class="post-category"><?php the_category(' , '); ?></p>
                                     </div>
                                     <h3>
-                                        <a href="http://#">
+                                        <a href="<?php the_permalink(); ?>">
                                         <?php the_title(); ?>
                                     </a>
                                     </h3>
@@ -48,8 +48,6 @@ get_header('front');
 
                         <?php wp_reset_postdata(); ?>
                         <?php endif; ?>
-                    
-                        
                     </div>
                 </section>
                 <section id="newsletter" class="collection newsletter">
@@ -115,7 +113,7 @@ get_header('front');
                     <div class="academic__items">
                         <div class="academic__heading-container">
                             <h2 class="academic__heading">Academics</h2>
-                            <p>Preparing studentsto make meaningful contributions to society as engaged citizens and leaders in a complex world.</p>
+                            <p>Preparing students to make meaningful contributions to society as engaged citizens and leaders in a complex world.</p>
                         </div>
                         <div class="content">
                             <?php $acadata = array(

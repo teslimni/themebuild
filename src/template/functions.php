@@ -134,6 +134,10 @@ add_action('widgets_init', 'uni_widgets_init');
 function uni_scripts()
 {
     wp_enqueue_style('uni-style', get_stylesheet_uri());
+    wp_enqueue_style(
+        'google-font',
+        'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600'
+);
 
     wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
 

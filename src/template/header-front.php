@@ -43,8 +43,19 @@
                 <button id="search-toggle">Search</button>
 
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
-                    
-                    <?php esc_html_e('Menu', 'uni'); ?>
+                    <div class="mobile">
+                    <div class="mobile__nav-icon">
+                        <span class="nav-icon">&nbsp;</span>
+                    </div>
+                        <div class="mobile__nav">
+                            <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'main',
+                                    'menu_id' => 'main-menu',
+                                ));
+                            ?>
+                        </div>
+                    </div>
                 </button>
             </section>
             <div class="menu-overlay"></div>
@@ -55,6 +66,7 @@
                     'theme_location' => 'main',
                     'menu_id' => 'main-menu',
                 )); ?>
+                
             </nav>
             <section class="brand__splash">
                 <section class="brand__panel">
@@ -71,7 +83,7 @@
                 </section>
             </section>
         </header>
-    
+        
 
 
     

@@ -1,116 +1,145 @@
 html {
-    font-size: var(--global-font);
+  font-size: var(--global-font);
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
 }
 
 * {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    box-sizing: border-box;
-    //   font-family: $font__main;
-    font-size: 1.8rem;
-    line-height: 1.5;
-    margin: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
+  box-sizing: border-box; //   font-family: $font__main;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 hr {
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #999;
-    border-left: 0;
-    margin: 1.25rem 0;
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  border-left: 0;
+  margin: 1.25rem 0;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
 }
 
 header {
-    // height: 100vh;
-    position: relative;
-    z-index: 80;
+  // height: 100vh;
+  position: relative;
+  z-index: 80;
 }
 
 figure,
 img,
 picture {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: none;
-    margin: 0;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  margin: 0;
 }
 
 img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: minmax(4rem, auto);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(4rem, auto);
 }
 
 .brand-strip {
-    background: var(--brand-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15), 0 0.3rem 0.3rem rgba(0, 0, 0, 0.15);
-    display: flex;
-    position: fixed;
-    width: 100%;
+  background: var(--brand-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15), 0 0.3rem 0.3rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  margin-top: -3px;
+  position: fixed;
+  width: 100%;
 }
 
 .site-branding {
-    margin-left: 3rem;
-    margin-right: auto;
-    margin-top: 0.7rem;
-    padding-bottom: 0.2rem;
+  margin-left: 3rem;
+  margin-right: auto;
+  margin-top: 0.7rem;
+  padding-bottom: 0.2rem;
 }
 
 .brand-strip,
 .logo,
 .menu-toggle,
 #search-toggle {
-    z-index: 9999;
+  z-index: 9999;
 }
 
 .logo {
-    background: transparent url("img/uni-logo.png") no-repeat left;
-    color: transparent;
-    display: block;
-    flex: 1 0 auto;
-    font-size: 0/0 a;
-    font-weight: 700;
-    min-height: 1.1rem;
-    margin: 0.2rem 0 0 2rem;
-    padding: 0.5rem;
-    text-decoration: none;
-    text-shadow: none;
-    width: 16.2rem;
+  background: transparent url("img/uni-logo.png") no-repeat left;
+  color: transparent;
+  display: block;
+  flex: 1 0 auto;
+  font-size: 0/0 a;
+  font-weight: 700;
+  min-height: 1.1rem;
+  margin: 0.2rem 0 0 2rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  text-shadow: none;
+  width: 16.2rem;
 }
 
 #search-toggle:before {
-    content: "\1F50D";
+  content: "\1F50D";
 }
 
-.menu-toggle:before {
-    content: "\2630 ";
-}
-
+// .menu-toggle:before {
+//     content: "\2630 ";
+// }
 #search-toggle,
 .menu-toggle {
-    background: none;
-    border: none;
-    color: #fff;
-    font-family: Roboto, sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    padding: 1.5rem;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1.5rem;
+  outline: none;
+  cursor: pointer;
 }
 
 #search-toggle:hover,
 .menu-toggle:hover {
-    background: darken($brand-background, 20%);
-    padding: 1.5rem;
+  background: darken($brand-background, 20%);
+  padding: 1.5rem;
+}
+
+// This solution is from https://www.sitepoint.com/getting-sticky-headers-wordpress-admin-bar-behave/
+@mixin admin-sticky-fix($offset: 0) {
+  $narrow-offset: 46px;
+  $wide-offset: 32px;
+  @if $offset !=0 and type-of($offset) == "number" {
+    $narrow-offset: $narrow-offset + $offset;
+    $wide-offset: $wide-offset + $offset;
+  }
+  .admin-bar & {
+    top: $narrow-offset;
+    @media screen and (min-width: 783px) {
+      top: $wide-offset;
+    }
+  }
 }

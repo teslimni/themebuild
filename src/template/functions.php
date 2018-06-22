@@ -140,6 +140,9 @@ function uni_scripts()
 );
 
     wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    wp_enqueue_script('jquery');
+
+    wp_enqueue_script('admin-bar-fix', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '2018', true);
 
     wp_enqueue_script('uni-skip-link-focus-fix', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
 

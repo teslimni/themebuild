@@ -152,7 +152,7 @@ gulp.task("watch", () => {
   // CSS Changes
   gulp.watch(css.watch, ["css"]);
 
-  // JavaScript main chnages
+  // JavaScript main changes
   gulp.watch(js.src, ["js"]);
 });
 

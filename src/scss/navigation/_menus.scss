@@ -1,229 +1,241 @@
 .main-navigation {
-    &::before {
-        display: block;
-        background: linear-gradient(0deg, transparent 0, #020202 75%);
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: -1.25em;
-        left: 0;
-        right: 0;
-        opacity: 0.75;
-    }
-    position: fixed;
-    top: 2.1333333333em;
-    bottom: auto;
-    width: 100%;
-    line-height: 1.8;
-    font-size: 2rem;
-    font-weight: 400;
-    text-align: center;
-    padding-bottom: 0;
-    transition: box-shadow 0.3s ease;
-    background-color: transparent;
-    z-index: 110;
-    ul {
-        display: none;
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
-        li {
-            a {
-                color: #fff;
-            }
-        }
-        ul {
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-            float: left;
-            position: absolute;
-            top: 100%;
-            left: -999em;
-            z-index: 99999;
-            ul {
-                left: -999em;
-                top: 0;
-            }
-            li {
-                &:hover>ul,
-                &.focus>ul {
-                    left: 100%;
-                }
-            }
-            a {
-                width: 200px;
-            }
-            :hover>a,
-            .focus>a {}
-            a:hover,
-            a.focus {}
-        }
-        li:hover>ul,
-        li.focus>ul {
-            left: auto;
-        }
-    }
+  &::before {
+    display: block;
+    background: linear-gradient(0deg, transparent 0, #020202 75%);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -1.25em;
+    left: 0;
+    right: 0;
+    opacity: 0.75;
+  }
+  position: fixed;
+  top: 2.1333333333em;
+  bottom: auto;
+  width: 100%;
+  line-height: 1.8;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  padding-bottom: 0;
+  transition: box-shadow 0.3s ease;
+  background-color: transparent;
+  z-index: 110;
+  ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
     li {
-        margin-right: 20px;
-        position: relative;
-        padding: 0.9rem 0.7rem 0;
-        a:hover {
-            border-bottom: 0.3rem solid #fff;
-            transition: all 0.15s ease-in;
-            visibility: visible;
+      a {
+        color: #fff;
+      }
+    }
+    ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
+      ul {
+        left: -999em;
+        top: 0;
+      }
+      li {
+        &:hover > ul,
+        &.focus > ul {
+          left: 100%;
         }
-        &:hover>a,
-        &.focus>a {}
+      }
+      a {
+        width: 200px;
+      }
+      :hover > a,
+      .focus > a {
+      }
+      a:hover,
+      a.focus {
+      }
     }
-    a {
-        display: block;
-        text-decoration: none;
+    li:hover > ul,
+    li.focus > ul {
+      left: auto;
     }
-    .current_page_item>a,
-    .current-menu-item>a,
-    .current_page_ancestor>a,
-    .current-menu-ancestor>a {}
-    .category-undergraduate & {
-        display: none;
+  }
+  li {
+    margin-right: 20px;
+    position: relative;
+    padding: 0.9rem 0.7rem 0;
+    a:hover {
+      border-bottom: 0.3rem solid #fff;
+      transition: all 0.15s ease-in;
+      visibility: visible;
     }
+    &:hover > a,
+    &.focus > a {
+    }
+  }
+  a {
+    display: block;
+    text-decoration: none;
+  }
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a {
+  }
+  .category-undergraduate & {
+    display: none;
+  }
 }
 
 .extra-nav {
-    font-size: 1.6rem;
-    margin-right: 0;
-    a {
-        color: #fff;
-        display: inline-block;
-        padding: 0.9em 0.75em;
+  font-size: 1.6rem;
+  margin-right: 0;
+  a {
+    color: #fff;
+    display: inline-block;
+    padding: 0.9em 0.75em;
+  }
+  ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      // padding-top: 11px;
+      a:hover {
+        background: darken($brand-background, 20%);
+      }
     }
-    ul {
-        display: none;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-            // padding-top: 11px;
-            a:hover {
-                background: darken($brand-background, 20%);
-            }
-        }
-        >a {
-            height: 2.6666666667em;
-            line-height: 1.6;
-        }
+    > a {
+      height: 2.6666666667em;
+      line-height: 1.6;
     }
+  }
 }
 
 /* Small menu. */
 
 .menu-toggle,
 .main-navigation.toggled ul {
-    display: block;
+  display: block;
+  z-index: 9;
 }
 
 @media screen and (min-width: 769px) {
-    .menu-toggle {
-        display: none;
-    }
-    .main-navigation ul {
-        display: flex;
-        justify-content: center;
-        padding-top: 13px;
-    }
-    .extra-nav ul {
-        display: flex;
-    }
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation ul {
+    display: flex;
+    justify-content: center;
+    padding-top: 13px;
+  }
+  .extra-nav ul {
+    display: flex;
+  }
 }
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-    .site-main & {
-        margin: 0 0 1.5em;
-        overflow: hidden;
-    }
-    .nav-previous {
-        float: left;
-        width: 40%;
-    }
-    .nav-next {
-        float: right;
-        text-align: right;
-        width: 40%;
-    }
+  .site-main & {
+    margin: 0 0 1.5em;
+    overflow: hidden;
+  }
+  .nav-previous {
+    float: left;
+    width: 40%;
+  }
+  .nav-next {
+    float: right;
+    text-align: right;
+    width: 40%;
+  }
 }
 
 .menu-main-container {
-    .logged-in & {
-        margin-top: 2.5rem;
-    }
+  .logged-in & {
+    margin-top: 2.5rem;
+  }
 }
 
 .menu-undergrad-menu-container {
-    @media screen and (min-width: 900px) {
-        position: fixed;
-    }
-    @media screen and (max-width: 768px) {
-        position: relative;
-    }
+  @media screen and (min-width: 900px) {
+    position: fixed;
+  }
+  @media screen and (max-width: 768px) {
+    position: relative;
+  }
 }
 
 .mobile {
-    &__nav {
-        background: var(--secondary-color);
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        text-align: left;
-        top: 0;
-        transition: all 0.9s ease;
-        visibility: hidden;
-        width: 100%;
-        ul {
-            list-style: none;
-            padding: 0;
-            li {
-                margin: 20px;
-            }
-        }
-        a {
-            color: #fff;
-        }
+  &__nav {
+    background: var(--secondary-color);
+    opacity: 0;
+    padding-top: 30px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    transition: all 0.9s ease;
+    visibility: hidden;
+    width: 100%;
+    z-index: 9;
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        margin: 20px;
+      }
     }
-    &__nav-icon {
-        display: flex;
-        margin-right: 22px;
+    a {
+      color: #fff;
     }
+  }
+  &__nav-icon {
+    display: flex;
+    margin-right: 22px;
+  }
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav-icon {
-    position: relative;
-    &,
-    &::before,
-    &::after {
-        background: #fff;
-        width: 3rem;
-        height: 2px;
-        display: inline-block;
-        position: absolute;
-        z-index: 100;
-    }
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        transition: all 0.2s;
-    }
-    &::before {
-        top: -0.8rem;
-    }
-    &::after {
-        top: 0.8rem;
-    }
-    &::before {
-        top: -1rem;
-    }
-    &::after {
-        top: 1rem;
-    }
+  position: relative;
+  &,
+  &::before,
+  &::after {
+    background: #fff;
+    width: 3rem;
+    height: 2px;
+    display: inline-block;
+    position: absolute;
+    z-index: 100;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s;
+  }
+  &::before {
+    top: -0.8rem;
+  }
+  &::after {
+    top: 0.8rem;
+  }
+  &::before {
+    top: -1rem;
+  }
+  &::after {
+    top: 1rem;
+  }
 }

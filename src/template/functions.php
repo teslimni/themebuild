@@ -140,9 +140,10 @@ function uni_scripts()
 );
 
     wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
-    wp_enqueue_script('jquery');
+    
+    wp_enqueue_script('uni-mobile-nav', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
 
-    wp_enqueue_script('admin-bar-fix', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '2018', true);
+    wp_enqueue_script('admin-bar-fix', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '20151215', true);
 
     wp_enqueue_script('uni-skip-link-focus-fix', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
 
@@ -194,3 +195,8 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Uni Theme plugins specifically meant for this theme
+ */
+require get_template_directory() . '/inc/uni-theme-plugins.php';

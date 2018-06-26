@@ -39,6 +39,14 @@
                     ));
                     ?>
                 </nav><!-- #site-navigation -->
+                <div class="mobile__nav">
+                    <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'main',
+                            'menu_id' => 'main-menu',
+                        ));
+                    ?>
+                </div>
                 
                 <button id="search-toggle">Search</button>
 
@@ -47,20 +55,13 @@
                     <div class="mobile__nav-icon">
                         <span class="nav-icon">&nbsp;</span>
                     </div>
-                        <div class="mobile__nav">
-                            <?php
-                                wp_nav_menu(array(
-                                    'theme_location' => 'main',
-                                    'menu_id' => 'main-menu',
-                                ));
-                            ?>
-                        </div>
+                        
                     </div>
                 </button>
+                
             </section>
             <div class="menu-overlay"></div>
             <nav id="site-navigation" class="main-navigation">
-                
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'main',

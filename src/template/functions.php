@@ -139,13 +139,16 @@ function uni_scripts()
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600'
 );
 
-    wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    wp_enqueue_script('uni-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+
+
+    // wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
     
-    wp_enqueue_script('uni-mobile-nav', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    // wp_enqueue_script('uni-mobile-nav', get_template_directory_uri() . '/js/scripts.js', array(''), '20151215', true);
 
-    wp_enqueue_script('admin-bar-fix', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '20151215', true);
+    // wp_enqueue_script('admin-bar-fix', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '20151215', true);
 
-    wp_enqueue_script('uni-skip-link-focus-fix', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    // wp_enqueue_script('uni-skip-link-focus-fix', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -199,4 +202,4 @@ if (defined('JETPACK__VERSION')) {
 /**
  * Uni Theme plugins specifically meant for this theme
  */
-require get_template_directory() . '/inc/uni-theme-plugins.php';
+// require get_template_directory() . '/inc/uni-theme-plugins.php';

@@ -6,7 +6,7 @@ get_header('front');
 
 ?>
     <div class="content-wrap">
-        <main class="main" id="main" role="main" tabindex="-1">
+        <main class="main js-section-hook" id="main" role="main" tabindex="-1">
             <h2 class="sr-only-element" id="main-content">Main Content</h2>
             <section class="collections">
                 <section id="news" class="collection news">

@@ -3,7 +3,6 @@
 * Template Name: Front Page
 */
 get_header('front');
-
 ?>
     <div class="content-wrap">
         <main class="main js-section-hook" id="main" role="main" tabindex="-1">
@@ -17,8 +16,8 @@ get_header('front');
                     <?php $query = new WP_Query($args); ?>
                     <?php if ($query->have_posts()) : ?>
                     <header>
-                        <h2 id="bookmark" class="collection__header">UniAbidjan Today</h2>
-                        <p class="collection__kicker">The latest news from UniAbidjan</p>
+                        <h2 id="bookmark" class="collection__header">UNIABIDJAN Today</h2>
+                        <p class="collection__kicker">The latest news from UNIABIDJAN</p>
                     </header>
                     <div class="content">
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -43,9 +42,8 @@ get_header('front');
                         </article>
                         <?php endwhile; ?>
                         <section class="cta">
-                            <a href="#">More Uniabidjan News</a>
+                            <a href="#">More UNIABIDJAN News</a>
                         </section>
-
                         <?php wp_reset_postdata(); ?>
                         <?php endif; ?>
                     </div>
@@ -125,7 +123,6 @@ get_header('front');
                                 $acada = new WP_Query($acadata);
                                 if ($acada->have_posts()) : while ($acada->have_posts()) : $acada->the_post();
                             ?>
-
                             <section class="info">
                                 <figure class="landscape">
                                     <picture>
@@ -138,7 +135,6 @@ get_header('front');
                                     <?php the_category(', '); ?>
                                 </p>
                             </section>
-                           
                             <?php endwhile; endif;
                             wp_reset_postdata(); ?>
                         </div>
@@ -157,7 +153,6 @@ get_header('front');
                                         'post__in' => array(261, 263, 265, 267),
                                         'order'    => 'ASC'
                                     );
-
                                     $sch = new WP_Query($schdata);
                                 ?>
                                 <?php if ($sch->have_posts()) : while ($sch->have_posts()) : $sch->the_post(); ?>
@@ -166,8 +161,7 @@ get_header('front');
                                 </li>
                                 <?php endwhile; endif;
                                 wp_reset_postdata();
-                                 ?>
-                                
+                                 ?>   
                             </ul>
                             <div class="cta">
                                 <a href="http://#">More about Academics</a>
@@ -301,12 +295,11 @@ get_header('front');
                         </div>
                     </div>
                 </section>
-
                 <section id="explore" class="collection explore">
                     <div class="explore__items">
                         <header class="explore__heading-container">
                             <h2 class="collection__header explore__heading">
-                                Explore UniAbidjan
+                                Explore UNIABIDJAN
                             </h2>
                             <ul class="content links-inline courses">
                                 <li>
@@ -336,10 +329,7 @@ get_header('front');
             </section>
         </main>
     </div><!-- .content-wrap-->
-       
         <?php get_footer(); ?>
     </div>
-
 </body>
-
 </html>

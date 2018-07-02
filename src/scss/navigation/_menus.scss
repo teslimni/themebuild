@@ -137,8 +137,7 @@
     .main-navigation {
         ul {
             display: flex;
-            justify-content: center;
-            padding-top: 13px;
+            justify-content: center; // padding-top: 13px;
         }
         & .logo {
             display: none;

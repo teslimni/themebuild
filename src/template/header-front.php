@@ -77,8 +77,8 @@
                 </div><!-- .site-branding -->
                 <?php
                 wp_nav_menu(array(
-                    'theme_location' => 'main',
-                    'menu_id' => 'main-menu',
+                    'theme_location' => 'secondary',
+                    'menu_id' => 'secondary-menu',
                 )); ?>
 
                 <button id="search-toggle">Search</button>                

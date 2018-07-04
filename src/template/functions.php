@@ -190,6 +190,13 @@ if (defined('JETPACK__VERSION')) {
 }
 
 /**
+ *  School Management Custom Post Type
+ */
+
+ require get_template_directory() . '/inc/school/school-post-type.php';
+ add_action('init', 'school_init');
+
+/**
  * Uni Theme plugins specifically meant for this theme
  */
 // require get_template_directory() . '/inc/uni-theme-plugins.php';

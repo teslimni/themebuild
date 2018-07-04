@@ -19,8 +19,8 @@ get_header();
         <aside id="secondary" class="cat-nav">
             <?php
                 wp_nav_menu(array(
-                    'theme_location' => 'undergrad',
-                    'menu_id' => 'undergrad-menu',
+                    'theme_location' => 'graduate',
+                    'menu_id' => 'graduate-menu',
                 ));
             ?>
         </aside><!-- #secondary -->
@@ -30,7 +30,7 @@ get_header();
                     <?php
                     /* Start the Loop */
                     while (have_posts()) : the_post();
-                        get_template_part('template-parts/content', 'ugraduate');
+                        get_template_part('template-parts/content', 'graduate');
                     endwhile; ?>
                 </div>
                 <?php the_posts_navigation();

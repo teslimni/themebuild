@@ -12,11 +12,8 @@ get_header();
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
-            
                 <?php if (have_posts()) : ?>
-
                     <header class="page-header">
-
                         <?php
                         single_cat_title('<h1 class="page-title">School ', '</h1>');
                         category_description('<div class="category-description">', '</div>');

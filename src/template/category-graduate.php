@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying undergraduate category archive page
+ * The template for displaying the graduate category archive page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

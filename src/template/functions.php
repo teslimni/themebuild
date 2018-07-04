@@ -137,18 +137,8 @@ function uni_scripts()
     wp_enqueue_style(
         'google-font',
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600'
-);
-
+    );
     wp_enqueue_script('uni-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
-
-
-    // wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
-    
-    // wp_enqueue_script('uni-mobile-nav', get_template_directory_uri() . '/js/scripts.js', array(''), '20151215', true);
-
-    // wp_enqueue_script('admin-bar-fix', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '20151215', true);
-
-    // wp_enqueue_script('uni-skip-link-focus-fix', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -203,3 +193,38 @@ if (defined('JETPACK__VERSION')) {
  * Uni Theme plugins specifically meant for this theme
  */
 // require get_template_directory() . '/inc/uni-theme-plugins.php';
+
+// Sample codes from Ultimate Member Plugin to help customize the plugin
+
+add_action('um_after_register_fields', 'add_a_hidden_field_to_register');
+function add_a_hidden_field_to_register($args)
+{
+    echo '<input type="hidden" name="field_id" id="field_id" value="HERE_GOES_THE_VALUE" />';
+}
+
+
+/**
+ * How to extend the Profile Tab with custom content. First we need to extend main profile tabs
+ *
+ */
+
+add_filter('um_profile_tabs', 'add_custom_profile_tab', 1000);
+function add_custom_profile_tab($tabs)
+{
+    $tabs['mycustomtab'] = array(
+        'name' => 'Student Details',
+        'icon' => 'um-faicon-comments',
+    );
+        
+    return $tabs;
+}
+
+/* Then we just have to add content to that tab using this action */
+
+add_action('um_profile_content_mycustomtab_default', 'um_profile_content_mycustomtab_default');
+function um_profile_content_mycustomtab_default($args)
+{
+    echo '<div class="test">Hello world!</div>';
+    echo require get_template_directory() . '/template-parts/content-ugraduate.php';
+    // require get_template_directory() . '/inc/jetpack.php';
+}

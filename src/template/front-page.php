@@ -102,7 +102,7 @@ get_header('front');
                             endif;
                             ?>
                             <section class="more_events">
-                                <a href="http://#">More UniAbidjan Events</a>
+                                <a href="category/events">More UniAbidjan Events</a>
                             </section>
                         </div>
                     </div>

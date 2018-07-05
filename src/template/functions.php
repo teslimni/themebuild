@@ -54,6 +54,7 @@ if (! function_exists('uni_setup')) :
             'graduate' => esc_html__('Graduate Menu', 'uni'),
             'language-pro' => esc_html__('Language-pro Menu', 'uni'),
             'mobile' => esc_html__('Mobile Menu', 'uni'),
+            'categories' => esc_html__('categories', 'uni')
         ));
 
         /*
@@ -150,19 +151,19 @@ add_action('wp_enqueue_scripts', 'uni_scripts');
 
 // Customize excerpt's read more link
 
-function uni_get_more_link($post_excerpt)
-{
-    return $post_excerpt  . ' <a class="read__more-link" href="'. get_permalink(get_the_ID()) . '">' . __('Read More...', 'uni')  . '</a>';
-}
-add_filter('wp_trim_excerpt', 'uni_get_more_link');
+// function uni_get_more_link($post_excerpt)
+// {
+//     return $post_excerpt  . ' <a class="read__more-link" href="'. get_permalink(get_the_ID()) . '">' . __('Read More...', 'uni')  . '</a>';
+// }
+// add_filter('wp_trim_excerpt', 'uni_get_more_link');
 
-//  Customize number of excerpt's words
+// //  Customize number of excerpt's words
 
-function uni_excerpt_length($length)
-{
-    return 30;
-}
-add_filter('excerpt_length', 'uni_excerpt_length', 999);
+// function uni_excerpt_length($length)
+// {
+//     return 30;
+// }
+// add_filter('excerpt_length', 'uni_excerpt_length', 999);
 
 /**
  * Implement the Custom Header feature.

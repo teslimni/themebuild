@@ -7,15 +7,15 @@
  * @package Uni_Theme
  */
 
-get_header();
+get_header('cat');
 ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
                 <?php if (have_posts()) : ?>
                     <header class="page-header">
+                        <h1 class"page-title"><?php single_cat_title();?></h1>
                         <?php
-                        single_cat_title('<h1 class="page-title">School ', '</h1>');
                         category_description('<div class="category-description">', '</div>');
                         ?>
                     </header><!-- .page-header -->
@@ -38,5 +38,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

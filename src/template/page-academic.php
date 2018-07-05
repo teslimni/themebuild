@@ -4,7 +4,7 @@
  * @package Uni_Theme
  */
 
-get_header();
+get_header('cat');
 ?>
     <header class="page-header">
         <?php

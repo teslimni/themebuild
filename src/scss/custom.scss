@@ -146,3 +146,62 @@ img {
     }
   }
 }
+
+.uni_course {
+  tr:not(:last-child),
+  td:not(:last-child) {
+    border-right: 1px solid #eee;
+    padding: 0 20px;
+  }
+  td:last-child {
+    padding: 20px;
+  }
+}
+
+.single-post {
+  & .site-content {
+    grid-template-columns: 2fr 1fr;
+    display: grid;
+    grid-column-gap: 1rem;
+    margin-top: 100px;
+    border: 2px solid #eee;
+    padding: 2rem;
+    border-radius: 3px;
+    & .content-area {
+      grid-column: 1;
+    }
+  }
+}
+
+.category {
+  .post {
+    border: 2px solid #eee;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #eee;
+  }
+}
+
+.widget {
+  &_categories {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 2rem;
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      li {
+        background: var(--brand-background);
+        padding: 5px;
+        transition: background 0.4s ease;
+        a {
+          color: white;
+        }
+        &:hover {
+          background: var(--secondary-color);
+        }
+      }
+    }
+  }
+}

@@ -17,3 +17,10 @@ if (is_page('graduate')) {
         'menu_id' => 'language-pro-menu',
     ));
 }
+
+if (is_category()) {
+    wp_nav_menu(array(
+        'theme_location' => 'Categories',
+        'menu_id' => 'categories',
+    ));
+}

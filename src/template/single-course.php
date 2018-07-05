@@ -1,9 +1,6 @@
 <?php
 /**
- * The template for displaying undergraduate category archive page
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
+ * Template for a single course
  * @package Uni_Theme
  */
 
@@ -11,26 +8,39 @@ get_header();
 ?>
     <header class="page-header">
         <?php
-        single_cat_title('<h1 class="page-title"> ', '</h1>'); ?>
+        the_title('<h1 class="page-title academic-heading"> ', '</h1>'); ?>
     </header><!-- .page-header -->
-    <?php echo category_description(); ?>
-
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area academic-program">
         <aside id="secondary" class="cat-nav">
             <?php
-                wp_nav_menu(array(
+                if (is_page('undergraduate')) {
+                    wp_nav_menu(array(
                     'theme_location' => 'undergrad',
                     'menu_id' => 'undergrad-menu',
-                ));
+                    ));
+                }
+                if (is_page('graduate')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'graduate',
+                        'menu_id' => 'graduate-menu',
+                    ));
+                }
+                if (is_page('graduate')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'language-pro',
+                        'menu_id' => 'language-pro-menu',
+                    ));
+                }
+
             ?>
         </aside><!-- #secondary -->
 		<main id="main" class="site-main">
             <?php if (have_posts()) : ?>
-                <div class="grid">
+                <div>
                     <?php
                     /* Start the Loop */
                     while (have_posts()) : the_post();
-                        get_template_part('template-parts/content', 'ugraduate');
+                        the_content();
                     endwhile; ?>
                 </div>
                 <?php the_posts_navigation();

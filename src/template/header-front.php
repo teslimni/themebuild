@@ -75,6 +75,12 @@
                         <p class="site-description"><?php echo $uni_description; /* WPCS: xss ok. */ ?></p>
                     <?php endif; ?>
                 </div><!-- .site-branding -->
+                <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'main',
+                        'menu_id' => 'main-menu',
+                    ));
+                ?>
                 <div class="mobile__nav">
                     <?php
                         wp_nav_menu(array(
@@ -83,8 +89,7 @@
                         ));
                     ?>
                 </div>
-
-                <button id="search-toggle">Search</button>                
+                <button id="search-toggle">Search</button>  
             </nav>
             <section class="brand__splash">
                 <section class="brand__panel">

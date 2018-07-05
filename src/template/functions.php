@@ -51,6 +51,8 @@ if (! function_exists('uni_setup')) :
             'main' => esc_html__('Main Menu', 'uni'),
             'secondary' => esc_html__('Secondary Menu', 'uni'),
             'undergrad' => esc_html__('Undergrad Menu', 'uni'),
+            'graduate' => esc_html__('Graduate Menu', 'uni'),
+            'language-pro' => esc_html__('Language-pro Menu', 'uni'),
             'mobile' => esc_html__('Mobile Menu', 'uni'),
         ));
 
@@ -190,11 +192,14 @@ if (defined('JETPACK__VERSION')) {
 }
 
 /**
- *  School Management Custom Post Type
+ *  School Management Custom Post Types: Schools and Courses
  */
 
- require get_template_directory() . '/inc/school/school-post-type.php';
+ require get_template_directory() . '/inc/school/school.php';
  add_action('init', 'school_init');
+
+ require get_template_directory() . '/inc/school/course.php';
+ add_action('init', 'course_init');
 
 /**
  * Uni Theme plugins specifically meant for this theme

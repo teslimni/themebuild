@@ -19,13 +19,11 @@ get_header();
                         category_description('<div class="category-description">', '</div>');
                         ?>
                     </header><!-- .page-header -->
-
                     <div class="grid">
                         <?php
                         /* Start the Loop */
                         while (have_posts()) : the_post();
-                            get_template_part('template-parts/content', 'news');
-
+                            get_template_part('template-parts/content');
                         endwhile; ?>
                     </div>
                    <?php the_posts_navigation();

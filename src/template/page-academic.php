@@ -1,9 +1,6 @@
 <?php
 /**
- * The template for displaying the graduate category archive page
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
+ * Template Name: Academic Page
  * @package Uni_Theme
  */
 
@@ -11,26 +8,19 @@ get_header();
 ?>
     <header class="page-header">
         <?php
-        single_cat_title('<h1 class="page-title"> ', '</h1>'); ?>
+        the_title('<h1 class="page-title academic-heading"> ', '</h1>'); ?>
     </header><!-- .page-header -->
-    <?php echo category_description(); ?>
-
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area academic-program">
         <aside id="secondary" class="cat-nav">
-            <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'graduate',
-                    'menu_id' => 'graduate-menu',
-                ));
-            ?>
+            <?php get_template_part('template-parts/content', 'course-nav'); ?>
         </aside><!-- #secondary -->
 		<main id="main" class="site-main">
             <?php if (have_posts()) : ?>
-                <div class="grid">
+                <div>
                     <?php
                     /* Start the Loop */
                     while (have_posts()) : the_post();
-                        get_template_part('template-parts/content', 'graduate');
+                        the_content();
                     endwhile; ?>
                 </div>
                 <?php the_posts_navigation();

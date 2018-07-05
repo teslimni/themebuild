@@ -42,7 +42,7 @@ get_header('front');
                         </article>
                         <?php endwhile; ?>
                         <section class="cta">
-                            <a href="#">More UNIABIDJAN News</a>
+                            <a href="category/news">More UNIABIDJAN News</a>
                         </section>
                         <?php wp_reset_postdata(); ?>
                         <?php endif; ?>

@@ -6,10 +6,8 @@
  *
  * @package Uni_Theme
  */
-
-get_header('cat');
+get_header();
 ?>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
                 <?php if (have_posts()) : ?>
@@ -28,9 +26,7 @@ get_header('cat');
                     </div>
                    <?php the_posts_navigation();
                 else :
-
                     get_template_part('template-parts/content', 'none');
-
                 endif;
                 wp_reset_postdata();
                 ?>

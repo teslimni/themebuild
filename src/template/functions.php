@@ -54,7 +54,7 @@ if (! function_exists('uni_setup')) :
             'graduate' => esc_html__('Graduate Menu', 'uni'),
             'language-pro' => esc_html__('Language-pro Menu', 'uni'),
             'mobile' => esc_html__('Mobile Menu', 'uni'),
-            'categories' => esc_html__('categories', 'uni')
+            'categories' => esc_html__('Categories Menu', 'uni')
         ));
 
         /*

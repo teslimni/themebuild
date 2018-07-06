@@ -11,7 +11,7 @@ if (is_page('graduate')) {
         'menu_id' => 'graduate-menu',
     ));
 }
-if (is_page('graduate')) {
+if (is_page(475)) {
     wp_nav_menu(array(
         'theme_location' => 'language-pro',
         'menu_id' => 'language-pro-menu',

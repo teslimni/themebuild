@@ -493,17 +493,20 @@ ul.links-inline li:first-of-type:before {
 ul.courses li a,
 ul.links-inline li a {
   color: var(--brand-color);
+  outline: none;
   padding-bottom: 0.8rem;
   text-decoration: none;
 }
 
 ul.links-inline li a {
   color: var(--theme-default);
+  outline: none;
 }
 
 ul.courses li a:hover {
   color: var(--button-hover);
-  border-bottom: solid var(--brand-color) 0.3rem;
+  // border-bottom: solid var(--brand-color) 0.3rem;
+  outline: none;
   transform: scaleX(0);
   transition: all 0.15s ease-out;
   visibility: visible;

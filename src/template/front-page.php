@@ -116,7 +116,8 @@ get_header('front');
                         <div class="content">
                             <?php $acadata = array(
                                 'posts_per_page' => 3,
-                                'cat' => '14,15,16',
+                                'post_type' => 'page',
+                                'post__in' => array(411,414,475),
                                 'order' => 'ASC'
                             ); ?>
                             <?php 
@@ -129,7 +130,7 @@ get_header('front');
                                         <?php the_post_thumbnail('medium_thumb'); ?>
                                     </picture>
                                 </figure>
-                                <h3><?php the_title(); ?></h3>
+                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                 <p><?php the_excerpt(); ?></p>
                                 <p class="info-link">
                                     <?php the_category(', '); ?>
@@ -149,8 +150,7 @@ get_header('front');
                             <ul class="courses">
                                 <?php 
                                     $schdata = array(
-                                        'post_type' => 'page',
-                                        'post__in' => array(261, 263, 265, 267),
+                                        'post_type' => 'uni_school',
                                         'order'    => 'ASC'
                                     );
                                     $sch = new WP_Query($schdata);
@@ -164,7 +164,7 @@ get_header('front');
                                  ?>   
                             </ul>
                             <div class="cta">
-                                <a href="http://#">More about Academics</a>
+                                <a href="/schools/">More about Academics</a>
                             </div>
                         </div>
                     </section>
@@ -212,9 +212,8 @@ get_header('front');
                                 </section>
                             <?php endwhile; endif; wp_reset_postdata(); ?>
 
-                            <div class="cta">
-                                
-                                <a href="http://#">More About Campus Life</a>
+                            <div class="cta">                             
+                                <a href="/category/school-life/">More About Campus Life</a>
                             </div>
                         </div>
                     </div>
@@ -253,7 +252,6 @@ get_header('front');
                                 </div>
                             </section>
 
-
                             <?php $learn = array(
                                 'posts_per_page' => 2,
                                 'post_type' => 'post',
@@ -276,7 +274,7 @@ get_header('front');
                         <?php endwhile; endif; wp_reset_postdata(); ?>
 
                             <div class="cta">
-                                <a href="http://#">More About Admission</a>
+                                <a href="/category/admissions">More About Admission</a>
                             </div>
                         </div>
                     </div>
@@ -290,7 +288,7 @@ get_header('front');
                         </header>
                         <div class="content">
                             <div class="cta">
-                                <a href="http://#">More About UniAbidjan</a>
+                                <a href="/about">More About UniAbidjan</a>
                             </div>
                         </div>
                     </div>

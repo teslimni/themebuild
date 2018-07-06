@@ -1,111 +1,111 @@
 html {
-  font-size: var(--global-font);
-  @include respond(tab-land) {
-    // width < 1200?
-    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
-  }
-  @include respond(tab-port) {
-    // width < 900?
-    font-size: 50%; //1 rem = 8px, 8/16 = 50%
-  }
-  @include respond(big-desktop) {
-    font-size: 75%; //1rem = 12, 12/16
-  }
+    font-size: var(--global-font);
+    @include respond(tab-land) {
+        // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+    @include respond(tab-port) {
+        // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
 }
 
 * {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-  box-sizing: border-box; //   font-family: $font__main;
-  font-size: 1.8rem;
-  line-height: 1.5;
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
+    box-sizing: border-box; //   font-family: $font__main;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 hr {
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 1px solid #999;
-  border-left: 0;
-  margin: 1.25rem 0;
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    border-left: 0;
+    margin: 1.25rem 0;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
 }
 
 header {
-  // height: 100vh;
-  position: relative;
-  z-index: 80;
+    // height: 100vh;
+    position: relative;
+    z-index: 80;
 }
 
 figure,
 img,
 picture {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: none;
-  margin: 0;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    margin: 0;
 }
 
 img {
-  object-fit: cover;
+    object-fit: cover;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: minmax(4rem, auto);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(4rem, auto);
 }
 
 .brand-strip {
-  background: var(--brand-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15), 0 0.3rem 0.3rem rgba(0, 0, 0, 0.15);
-  display: flex;
-  margin-top: -3px;
-  position: fixed;
-  width: 100%;
+    background: var(--brand-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15), 0 0.3rem 0.3rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    margin-top: -3px;
+    position: fixed;
+    width: 100%;
 }
 
 .site-branding {
-  margin-bottom: -3px;
-  margin-left: 3rem;
-  margin-right: auto;
-  margin-top: 0.7rem;
-  padding-bottom: 0.2rem;
-  .sticky & {
+    margin-bottom: -3px;
+    margin-left: 3rem;
     margin-right: auto;
-  }
+    margin-top: 0.7rem;
+    padding-bottom: 0.2rem;
+    .sticky & {
+        margin-right: auto;
+    }
 }
 
 .brand-strip,
 .logo,
 .menu-toggle,
 #search-toggle {
-  z-index: 9999;
+    z-index: 9999;
 }
 
 .logo {
-  // background: transparent url("img/uni-logo.png") no-repeat left;
-  color: transparent;
-  display: block; // flex: 1 0 auto;
-  font-size: 0/0 a;
-  font-weight: 700;
-  min-height: 1.1rem;
-  margin: 0.2rem 0 0 2rem;
-  padding: 0.5rem;
-  text-decoration: none;
-  text-shadow: none;
-  width: 16.2rem;
+    // background: transparent url("img/uni-logo.png") no-repeat left;
+    color: transparent;
+    display: block; // flex: 1 0 auto;
+    font-size: 0/0 a;
+    font-weight: 700;
+    min-height: 1.1rem;
+    margin: 0.2rem 0 0 2rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    text-shadow: none;
+    width: 16.2rem;
 }
 
 #search-toggle:before {
-  content: "\1F50D";
+    content: "\1F50D";
 }
 
 // .menu-toggle:before {
@@ -113,95 +113,121 @@ img {
 // }
 #search-toggle,
 .menu-toggle {
-  background: none;
-  border: none;
-  border-radius: 0;
-  color: #fff;
-  font-family: Roboto, sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  padding: 1.5rem;
-  outline: none;
-  cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 1.5rem;
+    outline: none;
+    cursor: pointer;
 }
 
 #search-toggle:hover,
 .menu-toggle:hover {
-  background: darken($brand-background, 20%);
-  padding: 1.5rem;
+    background: darken($brand-background, 20%);
+    padding: 1.5rem;
 }
 
 // This solution is from https://www.sitepoint.com/getting-sticky-headers-wordpress-admin-bar-behave/
 @mixin admin-sticky-fix($offset: 0) {
-  $narrow-offset: 46px;
-  $wide-offset: 32px;
-  @if $offset !=0 and type-of($offset) == "number" {
-    $narrow-offset: $narrow-offset + $offset;
-    $wide-offset: $wide-offset + $offset;
-  }
-  .admin-bar & {
-    top: $narrow-offset;
-    @media screen and (min-width: 783px) {
-      top: $wide-offset;
+    $narrow-offset: 46px;
+    $wide-offset: 32px;
+    @if $offset !=0 and type-of($offset)=="number" {
+        $narrow-offset: $narrow-offset + $offset;
+        $wide-offset: $wide-offset + $offset;
     }
-  }
+    .admin-bar & {
+        top: $narrow-offset;
+        @media screen and (min-width: 783px) {
+            top: $wide-offset;
+        }
+    }
 }
 
 .uni_course {
-  tr:not(:last-child),
-  td:not(:last-child) {
-    border-right: 1px solid #eee;
-    padding: 0 20px;
-  }
-  td:last-child {
-    padding: 20px;
-  }
+    tr:not(:last-child),
+    td:not(:last-child) {
+        border-right: 1px solid #eee;
+        padding: 0 20px;
+    }
+    td:last-child {
+        padding: 20px;
+    }
 }
 
 .single-post {
-  & .site-content {
-    grid-template-columns: 2fr 1fr;
-    display: grid;
-    grid-column-gap: 1rem;
-    margin-top: 100px;
-    border: 2px solid #eee;
-    padding: 2rem;
-    border-radius: 3px;
-    & .content-area {
-      grid-column: 1;
+    & .site-content {
+        grid-template-columns: 2fr 1fr;
+        display: grid;
+        grid-column-gap: 1rem;
+        margin-top: 100px;
+        border: 2px solid #eee;
+        padding: 2rem;
+        border-radius: 3px;
+        & .content-area {
+            grid-column: 1;
+        }
     }
-  }
 }
 
 .category {
-  .post {
-    border: 2px solid #eee;
-    padding: 1rem;
-    border-radius: 3px;
-    box-shadow: 1px 1px 3px #eee;
-  }
+    .post {
+        border: 2px solid #eee;
+        padding: 1rem;
+        border-radius: 3px;
+        box-shadow: 1px 1px 3px #eee;
+    }
 }
 
 .widget {
-  &_categories {
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 2rem;
-      list-style: none;
-      padding: 0;
-      text-align: center;
-      li {
-        background: var(--brand-background);
-        padding: 5px;
-        transition: background 0.4s ease;
-        a {
-          color: white;
+    &_categories {
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 2rem;
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            li {
+                background: var(--brand-background);
+                padding: 5px;
+                transition: background 0.4s ease;
+                a {
+                    color: white;
+                }
+                &:hover {
+                    background: var(--secondary-color);
+                }
+            }
         }
-        &:hover {
-          background: var(--secondary-color);
-        }
-      }
     }
-  }
+}
+
+.card,
+.single-uni_school {
+   & .site-content {
+        margin-top: 10rem;
+   }
+    & article,
+    .uni_school {
+        border: 2px solid #eee;
+        padding: 2rem;
+        box-shadow: 1px 1px 1px #eee;
+        border-radius: 3px;
+    }
+}
+
+.school__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    & article {
+        border: 2px solid #eee;
+        padding: 2rem;
+        border-radius: 3px;
+        box-shadow: 1px 1px 1px #eee;
+    }
 }

@@ -1,27 +1,25 @@
 <?php
 /**
- * Template for a single course
+ * Template Name: Life Long
  * @package Uni_Theme
  */
 
 get_header();
 ?>
     <header class="page-header">
-        <?php
-        the_title('<h1 class="page-title academic-heading"> ', '</h1>'); ?>
+        <h1><?php the_title(); ?></h1>
     </header><!-- .page-header -->
 	<div id="primary" class="content-area academic-program">
         <aside id="secondary" class="cat-nav">
-            <?php
-                get_template_part('template-parts/content', 'course-nav');
-            ?>
+            <?php get_template_part('template-parts/content', 'course-nav'); ?>
         </aside><!-- #secondary -->
 		<main id="main" class="site-main">
-            <?php if (have_posts()) : ?>
-                <div>
+          <?php  $grad  = new WP_Query(array( 'page_id' => 475 ));
+            if ($grad->have_posts()) : ?>
+                <div> 
                     <?php
                     /* Start the Loop */
-                    while (have_posts()) : the_post();
+                    while ($grad->have_posts()) : $grad->the_post();
                         the_content();
                     endwhile; ?>
                 </div>

@@ -7,7 +7,9 @@
 }
 
 .content-area {
-  .page-template-page-academic &,
+  .page-template-page-graduate &,
+  .page-template-page-undergraduate &,
+  .page-template-page-lifelong &,
   .category-undergraduate &,
   .category-graduate & {
     display: grid;

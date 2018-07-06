@@ -42,13 +42,13 @@
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 			<nav class="extra-nav">
-			        <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'Categories Menu',
-                        'menu_id' => 'categories-menu',
-                    ));
+					<?php 
+                        wp_nav_menu(array(
+                            'theme_location' => 'Categories Menu',
+                            'menu_id' => 'categories-menu',
+                        ));
                     ?>
-				</nav><!-- extra-nav -->
+			</nav><!-- extra-nav -->
 				<button id="search-toggle">Search</button>
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false"> 
 					<div class="mobile">

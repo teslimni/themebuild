@@ -14,8 +14,8 @@ get_header();
             <?php get_template_part('template-parts/content', 'course-nav'); ?>
         </aside><!-- #secondary -->
 		<main id="main" class="site-main">
-          <?php  $grad  = new WP_Query( array( 'page_id' => 414 ) );
-            if($grad->have_posts()) : ?>
+          <?php  $grad  = new WP_Query(array( 'page_id' => 438 ));
+            if ($grad->have_posts()) : ?>
                 <div> 
                     <?php
                     /* Start the Loop */

@@ -17,7 +17,7 @@
   &__name {
     transition: font-size 0.5s ease;
     width: auto;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -50,9 +50,6 @@
     font-size: 3rem;
     letter-spacing: 1rem;
     line-height: 1.4;
-    margin: 0;
-    padding: 3em 0 0;
-    margin-left: 0;
     height: auto;
     position: absolute;
     display: block;
@@ -88,12 +85,7 @@
     transform: none;
     max-width: none;
     max-height: none;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(28, 80, 129, 0.63),
-        rgba(0, 90, 44, 0.7215686274509804)
-      ),
-      url("img/Abidjan1.jpeg");
+    background-image: linear-gradient( to bottom, rgba(28, 80, 129, 0.63), rgba(0, 90, 44, 0.7215686274509804)), url("img/Abidjan1.jpeg");
     background-size: cover;
     background-position: top;
   }
@@ -504,8 +496,7 @@ ul.links-inline li a {
 }
 
 ul.courses li a:hover {
-  color: var(--button-hover);
-  // border-bottom: solid var(--brand-color) 0.3rem;
+  color: var(--button-hover); // border-bottom: solid var(--brand-color) 0.3rem;
   outline: none;
   transform: scaleX(0);
   transition: all 0.15s ease-out;

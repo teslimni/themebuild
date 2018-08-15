@@ -8,39 +8,13 @@
  */
 
 if (! function_exists('uni_setup')) :
-    /**
-     * Sets up theme defaults and registers support for various WordPress features.
-     *
-     * Note that this function is hooked into the after_setup_theme hook, which
-     * runs before the init hook. The init hook is too late for some features, such
-     * as indicating support for post thumbnails.
-     */
     function uni_setup()
     {
-        /*
-         * Make theme available for translation.
-         * Translations can be filed in the /languages/ directory.
-         * If you're building a theme based on Uni Theme, use a find and replace
-         * to change 'uni' to the name of your theme in all the template files.
-         */
         load_theme_textdomain('uni', get_template_directory() . '/languages');
 
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
-
-        /*
-         * Let WordPress manage the document title.
-         * By adding theme support, we declare that this theme does not use a
-         * hard-coded <title> tag in the document head, and expect WordPress to
-         * provide it for us.
-         */
         add_theme_support('title-tag');
-
-        /*
-         * Enable support for Post Thumbnails on posts and pages.
-         *
-         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-         */
         add_theme_support('post-thumbnails');
         add_image_size('big_feature', 1287, 460, true); // for news feature and admission feature
         add_image_size('small_thumb', 300, 200, true);
@@ -141,8 +115,14 @@ function uni_scripts()
         'google-font',
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600'
     );
-    wp_enqueue_script('uni-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
-
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('uni-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
+    wp_enqueue_script('uni-waypoints', get_template_directory_uri() . '/js/jquery.waypoints.min.js', '20151215', true);
+    wp_enqueue_script('uni-mobile-nav', get_template_directory_uri('query', 'uni-waypoints') . '/js/mobile-nav.js', '20151215', true);
+    wp_enqueue_script('uni-admin-bar-fix', get_template_directory_uri('query') . '/js/admin-bar-fix.js', '20151215', true);
+    wp_enqueue_script('uni-skip-link', get_template_directory_uri() . '/js/skip-link-focus-fix.js', '20151215', true);
+    // wp_enqueue_script('uni-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true);
+    
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
@@ -214,7 +194,6 @@ function add_a_hidden_field_to_register($args)
 {
     echo '<input type="hidden" name="field_id" id="field_id" value="HERE_GOES_THE_VALUE" />';
 }
-
 
 /**
  * How to extend the Profile Tab with custom content. First we need to extend main profile tabs

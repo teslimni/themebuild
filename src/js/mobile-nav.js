@@ -1,4 +1,4 @@
-// requires: jquery.waypoints.min.js
+// requires: jquery.waypoints.min.js jquery.min.js
 jQuery(document).ready(function($) {
   $(".js-section-hook").waypoint(
     function(direction) {
@@ -15,19 +15,9 @@ jQuery(document).ready(function($) {
     }
   );
 
-  //   if ($("nav").hasClass(".sticky")) {
-  //     $(".site-branding")
-  //       .clone()
-  //       .prependTo(".sticky");
-  //   }
-
   // Mobile Menu
   $(".menu-toggle").click(function() {
     var toggle = jQuery(".mobile__nav");
     toggle.slideToggle(200);
-  });
-
-  $(window).resize(function() {
-    alert("You resized window");
   });
 });

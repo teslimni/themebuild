@@ -21,7 +21,7 @@
 			<div class="entry-meta">
 				<?php
                 uni_posted_on();
-                uni_posted_by();
+                // uni_posted_by();
                 ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>

@@ -55,7 +55,6 @@ gulp.task("images", () => {
 });
 
 // CSS Settings
-
 var css = {
   src: dir.src + "scss/style.scss",
   watch: dir.src + "scss/**/*",

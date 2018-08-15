@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Uni Abidjan</title>
 
-
     <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?> >
     <div class="container">
         <header class="brand site-header" id="masthead" role="banner">
             <section class="brand-strip main">
                 <div class="site-branding">
-                    <!-- <a href="http://uniabidjan.com" rel="home" class="logo">UniAbidjan Test</a> -->
                     <?php the_custom_logo();
                     if (is_front_page() && is_home()) : ?>
                             <h1 class="site-title logo"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
@@ -47,7 +43,6 @@
                         ));
                     ?>
                 </div>
-                
                 <button id="search-toggle">Search</button>
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
                     <div class="mobile">
@@ -56,12 +51,10 @@
                     </div>
                     </div>
                 </button>
-
             </section>
             <div class="menu-overlay"></div>
             <nav id="site-navigation" class="main-navigation lower">
                 <div class="site-branding logo">
-                    <!-- <a href="http://uniabidjan.com" rel="home" class="logo">UniAbidjan Test</a> -->
                     <?php the_custom_logo();
                     if (is_front_page() && is_home()) : ?>
                             <h1 class="site-title logo"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>

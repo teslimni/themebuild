@@ -160,6 +160,9 @@ img {
 
 .single-post {
     & .site-content {
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
         grid-template-columns: 2fr 1fr;
         display: grid;
         grid-column-gap: 1rem;
@@ -193,6 +196,9 @@ img {
             text-align: center;
             li {
                 background: var(--brand-background);
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 padding: 5px;
                 transition: background 0.4s ease;
                 a {
@@ -208,9 +214,9 @@ img {
 
 .card,
 .single-uni_school {
-   & .site-content {
+    & .site-content {
         margin-top: 10rem;
-   }
+    }
     & article,
     .uni_school {
         border: 2px solid #eee;

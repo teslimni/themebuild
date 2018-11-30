@@ -321,6 +321,7 @@ get_header('front');
                         <section>
                             <picture>
                                 <img src="img/Abidjan3.jpeg" alt="" srcset="#" class="bg-img">
+                                <img src="<?php get_template_directory_uri(); ?>/img/Abidjan3.jpeg" alt="" srcset="#" class="bg-img">
                             </picture>
                         </section>
                     </div>

@@ -3,134 +3,52 @@
 * Template Name: Front Page
 */
 get_header('front');
-
 ?>
-        <header class="brand" role="banner">
-            <section class="brand-strip">
-                <a href="http://uniabidjan.com" rel="home" class="logo">UniAbidjan</a>
-                <button id="search-toggle">Search</button>
-                <button id="menu-toggle"></button>
-            </section>
-            <section class="brand__splash">
-                <section class="brand__panel">
-                    <p class="brand__name">UniAbidjan</p>
-                    <p class="splash__scroller">Explore UniAbidjan
-                        <i class="scroll__down"></i>
-                    </p>
-                    <picture>
-                        <img class="splash__img" src="img/Abidjan1.jpeg" role="presentation" alt="" srcset="">
-                    </picture>
-                </section>
-            </section>
-        </header>
-        <main class="main" id="main" role="main" tabindex="-1">
+    <div class="content-wrap">
+        <main class="main js-section-hook" id="main" role="main" tabindex="-1">
             <h2 class="sr-only-element" id="main-content">Main Content</h2>
             <section class="collections">
-                <section class="collection news">
+                <section id="news" class="collection news">
+                    <?php $args = array(
+                        'posts_per_page' => 5,
+                        'category_name' => 'news',
+                    ) ; ?>
+                    <?php $query = new WP_Query($args); ?>
+                    <?php if ($query->have_posts()) : ?>
                     <header>
-                        <h2 class="collection__header">UniAbidjan Today</h2>
-                        <p class="collection__kicker">The latest news from UniAbidjan</p>
+                        <h2 id="bookmark" class="collection__header">UNIABIDJAN Today</h2>
+                        <p class="collection__kicker">The latest news from UNIABIDJAN</p>
                     </header>
                     <div class="content">
+                        <?php while ($query->have_posts()) : $query->the_post(); ?>
                         <article class="card">
                             <div class="article__inner">
                                 <figure>
-                                    <a href="http://#">
-                                        <img src="img/Abidjan1.jpeg" alt="" srcset="">
+                                    <a href="<?php the_permalink();?>">
+                                        <?php the_post_thumbnail('big_feature'); ?>
                                     </a>
                                 </figure>
                                 <div class="article__content">
                                     <div class="post-meta">
-                                        <p class="post-category">Category: Admissions</p>
+                                        <p class="post-category"><?php the_category(' , '); ?></p>
                                     </div>
                                     <h3>
-                                        <a href="http://#">The Title of the latest news article from the University goes here.</a>
-                                    </h3>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card">
-                            <div class="article__inner">
-                                <figure>
-                                    <a href="http://#">
-                                        <img src="img/Abidjan3.jpeg" alt="" srcset="">
+                                        <a href="<?php the_permalink(); ?>">
+                                        <?php the_title(); ?>
                                     </a>
-                                </figure>
-                                <div class="article__content">
-                                    <div class="post-meta">
-                                        <p class="post-category">Category: Alumni</p>
-                                    </div>
-                                    <h3>
-                                        <a href="http://#">Another news article from UniAbidjan.</a>
                                     </h3>
-
                                 </div>
-
                             </div>
                         </article>
-                        <article class="card">
-                            <div class="article__inner">
-                                <figure>
-                                    <a href="http://#">
-                                        <img src="img/Abidjan2jpeg.jpeg" alt="" srcset="">
-                                    </a>
-                                </figure>
-                                <div class="article__content">
-                                    <div class="post-meta">
-                                        <p class="post-category">Category: School Life</p>
-                                    </div>
-                                    <h3>
-                                        <a href="http://#">A third powerful news article to give prospective students a reason to choose uniAbidjan.</a>
-                                    </h3>
-
-                                </div>
-
-                            </div>
-                        </article>
-                        <article class="card">
-                            <div class="article__inner">
-                                <figure>
-                                    <a href="http://#">
-                                        <img src="img/Abidjan2jpeg.jpeg" alt="" srcset="">
-                                    </a>
-                                </figure>
-                                <div class="article__content">
-                                    <div class="post-meta">
-                                        <p class="post-category">Category: School Life</p>
-                                    </div>
-                                    <h3>
-                                        <a href="http://#">A third powerful news article to give prospective students a reason to choose uniAbidjan.</a>
-                                    </h3>
-
-                                </div>
-
-                            </div>
-                        </article>
-                        <article class="card">
-                            <div class="article__inner">
-                                <figure>
-                                    <a href="http://#">
-                                        <img src="img/Abidjan2jpeg.jpeg" alt="" srcset="">
-                                    </a>
-                                </figure>
-                                <div class="article__content">
-                                    <div class="post-meta">
-                                        <p class="post-category">Category: School Life</p>
-                                    </div>
-                                    <h3>
-                                        <a href="http://#">A third powerful news article to give prospective students a reason to choose uniAbidjan.</a>
-                                    </h3>
-
-                                </div>
-
-                            </div>
-                        </article>
+                        <?php endwhile; ?>
                         <section class="cta">
-                            <a href="new.uniabidjan.com">More Uniabidjan News</a>
+                            <a href="category/news">More UNIABIDJAN News</a>
                         </section>
+                        <?php wp_reset_postdata(); ?>
+                        <?php endif; ?>
                     </div>
                 </section>
-                <section class="collection newsletter">
+                <section id="newsletter" class="collection newsletter">
                     <h2 class="newsletter__heading">Get daily news updates from
                         <em>UniAbidjan Report</em>
                     </h2>
@@ -141,421 +59,168 @@ get_header('front');
                         <input type="submit" value="Sign Up" name="subscribe">
                     </form>
                 </section>
-                <section class="collection events">
+                <section id="events" class="collection events">
                     <div class="event__items">
                         <div class="event__heading-container">
                             <h2 class="event__heading">UniAbidjan Events</h2>
                             <p>What's happening on campus</p>
                         </div>
                         <div class="content">
+                            <?php 
+                                $data = array(
+                                    'posts_per_page' => 4,
+                                    'category_name' => 'events',
+                                );
+                                $event = new WP_Query($data);
+                            ?>
+                            <?php if ($event->have_posts()) : while ($event->have_posts()) : $event->the_post(); ?>
                             <figure>
-                                <a href="http://#" class="img-wrapper">
-                                    <img src="img/logo-fond-transparent.png" alt="">
+                                <a href="<?php the_permalink(); ?>" class="img-wrapper">
+                                    <?php the_post_thumbnail('small_thumb'); ?>
                                 </a>
-                                <div class="date">
-                                    <span class="month">May</span>
-                                    <span class="day">16</span>
-                                </div>
-                                <div class="event__content">
-                                    <p class="tag">News</p>
-                                    <h3>
-                                        <a href="http://#">University President presents new Student to the stakeholders.</a>
-                                    </h3>
-                                    <time>1:45 PM</time>
-                                </div>
+                                <?php if (have_rows('event')) : while (have_rows('event')) : the_row(); ?>
+                                    <?php if (get_row_layout() == 'event_data') : ?>
+                                        <div class="date">
+                                            <span class="month"><?php echo the_sub_field('month'); ?></span>
+                                            <span class="day"><?php echo the_sub_field('day'); ?></span>
+                                        </div>
+                                        <div class="event__content">
+                                            <?php if (has_tag()) : ?>
+                                                <p class="tag"><?php the_tags(''); ?></p>
+                                            <?php endif; ?>
+                                            <h3>
+                                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?>.</a>
+                                            </h3>
+                                            <time><?php echo the_sub_field('time'); ?></time>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php endwhile; reset_rows();
+                                endif; ?>
                             </figure>
-                            <figure>
-                                <a href="http://#" class="img-wrapper">
-                                    <img src="img/logo-fond-transparent.png" alt="">
-                                </a>
-                                <div class="date">
-                                    <span class="month">May</span>
-                                    <span class="day">17</span>
-                                </div>
-                                <div class="event__content">
-                                    <p class="tag">Admissions</p>
-                                    <h3>
-                                        <a href="http://#">New Student Registration Portal opens at the University of Abidjan</a>
-                                    </h3>
-                                    <time>12:00 AM</time>
-                                </div>
-                            </figure>
-                            <figure>
-                                <a href="http://#" class="img-wrapper">
-                                    <img src="img/logo-fond-transparent.png" alt="">
-                                </a>
-                                <div class="date">
-                                    <span class="month">May</span>
-                                    <span class="day">20</span>
-                                </div>
-                                <div class="event__content">
-                                    <p class="tag">Students</p>
-                                    <h3>
-                                        <a href="http://#">University of Abidjan Students demonstrate the language skills for a modern digital citizenship experience</a>
-                                    </h3>
-                                    <time>4:00 PM</time>
-                                </div>
-                            </figure>
-                            <figure>
-                                <a href="http://#" class="img-wrapper">
-                                    <img src="img/logo-fond-transparent.png" alt="">
-                                </a>
-                                <div class="date">
-                                    <span class="month">May</span>
-                                    <span class="day">29</span>
-                                </div>
-                                <div class="event__content">
-                                    <p class="tag">Scholarship</p>
-                                    <h3>
-                                        <a href="http://#">20 Students Wins the United Nations Prestigious Scholarship Awards for Language in Diplomatic Domains</a>
-                                    </h3>
-                                    <time>9:00 AM</time>
-                                </div>
-                            </figure>
+                            
+                            <?php endwhile; wp_reset_postdata();
+                            endif;
+                            ?>
                             <section class="more_events">
-                                <a href="http://#">More UniAbidjan Events</a>
+                                <a href="category/events">More UniAbidjan Events</a>
                             </section>
                         </div>
                     </div>
                 </section>
-                <section class="collection academic theme-academic">
+                <section id="academic" class="collection academic theme-academic">
                     <div class="academic__items">
                         <div class="academic__heading-container">
                             <h2 class="academic__heading">Academics</h2>
-                            <p>Preparing studentsto make meaningful contributions to society as engaged citizens and leaders in a complex world.</p>
+                            <p>Preparing students to make meaningful contributions to society as engaged citizens and leaders in a complex world.</p>
                         </div>
                         <div class="content">
+                            <?php $acadata = array(
+                                'posts_per_page' => 3,
+                                'post_type' => 'page',
+                                'post__in' => array(437,438,475),
+                                // 'post__in' => array(411,414,475),
+                                'order' => 'ASC'
+                            ); ?>
+                            <?php 
+                                $acada = new WP_Query($acadata);
+                                if ($acada->have_posts()) : while ($acada->have_posts()) : $acada->the_post();
+                            ?>
                             <section class="info">
                                 <figure class="landscape">
                                     <picture>
-                                        <img src="img/Abidjan1.jpeg" alt="undergrad courses" srcset="">
+                                        <?php the_post_thumbnail('medium_thumb'); ?>
                                     </picture>
                                 </figure>
-                                <h3>Undergraduate Education</h3>
-                                <p>Rich learning experiences that provide a broadliberal arts foundationand deep subjec-area expertise</p>
+                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                <p><?php the_excerpt(); ?></p>
                                 <p class="info-link">
-                                    <a href="http://#" class="jump-link">Undergraduate Education&raquo;</a>
+                                    <?php the_category(', '); ?>
                                 </p>
                             </section>
-                            <section class="info">
-                                <figure class="landscape">
-                                    <picture>
-                                        <img src="img/Abidjan1.jpeg" alt="graduate courses" srcset="">
-                                    </picture>
-                                </figure>
-                                <h3>Graduate Education</h3>
-                                <p>Unsurpassed opportunity to participate in the advancement of entire fields of knowledge</p>
-                                <p class="info-link">
-                                    <a href="http://#" class="jump-link">Graduate Education&raquo;</a>
-                                </p>
-                            </section>
-                            <section class="info">
-                                <figure class="landscape">
-                                    <picture>
-                                        <img src="img/Abidjan1.jpeg" alt="graduate courses" srcset="">
-                                    </picture>
-                                </figure>
-                                <h3>Lifelong Education</h3>
-                                <p>Continuing adult education, executive and professional programs, and programs for K-12 students</p>
-                                <p class="info-link">
-                                    <a href="http://#" class="jump-link">Programs for Lifelong Learning&raquo;</a>
-                                </p>
-                            </section>
+                            <?php endwhile; endif;
+                            wp_reset_postdata(); ?>
                         </div>
                     </div>
                     <section class="schools">
                         <div class="schools__heading-container">
                             <h3 class="schools__heading">
-                                Seven Schools in which to pursue your passions
+                                Four Schools in which to pursue your passions
                             </h3>
                         </div>
                         <div class="schools__items">
                             <ul class="courses">
+                                <?php 
+                                    $schdata = array(
+                                        'post_type' => 'uni_school',
+                                        'order'    => 'ASC'
+                                    );
+                                    $sch = new WP_Query($schdata);
+                                ?>
+                                <?php if ($sch->have_posts()) : while ($sch->have_posts()) : $sch->the_post(); ?>
                                 <li>
-                                    <a href="#">Entrepreneurship</a>
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                 </li>
-                                <li>
-                                    <a href="#">Business</a>
-                                </li>
-                                <li>
-                                    <a href="#">Computer Science</a>
-                                </li>
-                                <li>
-                                    <a href="#">French</a>
-                                </li>
-                                <li>
-                                    <a href="#">Arabic</a>
-                                </li>
-                                <li>
-                                    <a href="#">Chinese</a>
-                                </li>
-                                <li>
-                                    <a href="#">English</a>
-                                </li>
+                                <?php endwhile; endif;
+                                wp_reset_postdata();
+                                 ?>   
                             </ul>
                             <div class="cta">
-                                <a href="http://#">More about Academics</a>
+                                <a href="/schools/">More about Academics</a>
                             </div>
                         </div>
                     </section>
                 </section>
-                <section class="quote">
+                <section id="quote" class="quote">
                     <picture>
                         <img class="bg-img" src="#" alt="" srcset="">
                     </picture>
                     <div class="content quote__item">
-                        <img src="#" alt="">
-                        <p>"It is an exciting time to be learning at the University of Abidjan... and thrilling to see students engaged and making real progress."</p>
-                        <div class="attribution">
-                            <h3>Isiaq Hammed</h3>
-                            <p>Head of Languages Department</p>
-                            <div class="jump-link">
-                                <a href="http://#">More about Isiaq&raquo;</a>
-                            </div>
-                        </div>
+                       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                            
+                            <?php get_template_part('template-parts/content', 'quote'); ?>
+                            <?php endwhile; endif; wp_reset_postdata(); ?>   
                     </div>
                 </section>
-                <section class="collection research theme-research">
-                    <div class="research__items">
-                        <div class="research__heading-container">
-                            <h2 class="research__heading collection__header"> Research</h2>
-                            <p class="collection__kicker">Working at the fore front of innovative research through collaboration to drive innoative discoveries that the world depnds on for a better and sustainable world</p>
-                        </div>
-                        <hr>
-                        <div class="content">
-                            <section class="research-grid">
-                                <figure>
-                                    <strong>9 Institutes</strong>
-                                    cross interdisciplinary boundaries
-                                </figure>
-                                <figure>
-                                    <strong>20 Libraries</strong>
-                                    hold over 9.5 million volumes
-                                </figure>
-                                <figure>
-                                    <strong>$10 Million</strong>
-                                    Annual research budget
-                                </figure>
-                            </section>
-                            <hr>
-                        </div>
-                    </div>
-                    <section class="facts theme-research">
-                        <div class="facts__items">
-                            <header class="facts__heading-container">
-                                <h2 class="facts__heading">Uniabidjan Research for a Better World</h2>
-                            </header>
-
-                            <div class="content">
-                                <article class="card">
-                                    <div class="article__inner">
-                                        <figure class="landscape">
-                                            <a href="#">
-                                                <picture>
-                                                    <img src="img/Abidjan3.jpeg" alt="">
-                                                </picture>
-                                            </a>
-                                        </figure>
-                                    </div>
-                                    <div class="article__content">
-                                        <div class="post-meta">
-                                            <p class="post-category">Language & Technology</p>
-                                        </div>
-                                        <h3>
-                                            <a href="http://#">UniAbidjan innovator invents new laguage learning machine</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                                <article class="card">
-                                    <div class="article__inner">
-                                        <figure class="landscape">
-                                            <a href="#">
-                                                <picture>
-                                                    <img src="img/Abidjan3.jpeg" alt="">
-                                                </picture>
-                                            </a>
-                                        </figure>
-                                    </div>
-                                    <div class="article__content">
-                                        <div class="post-meta">
-                                            <p class="post-category">Business& Language</p>
-                                        </div>
-                                        <h3>
-                                            <a href="http://#">UniAbidjan innovator invents new laguage learning machine</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                                <article class="card">
-                                    <div class="article__inner">
-                                        <figure class="landscape">
-                                            <a href="#">
-                                                <picture>
-                                                    <img src="img/Abidjan3.jpeg" alt="">
-                                                </picture>
-                                            </a>
-                                        </figure>
-                                    </div>
-                                    <div class="article__content">
-                                        <div class="post-meta">
-                                            <p class="post-category">Entrepreneurship & Technology</p>
-                                        </div>
-                                        <h3>
-                                            <a href="http://#">UniAbidjan innovator invents new laguage learning machine</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                                <article class="card">
-                                    <div class="article__inner">
-                                        <figure class="landscape">
-                                            <a href="#">
-                                                <picture>
-                                                    <img src="img/Abidjan3.jpeg" alt="">
-                                                </picture>
-                                            </a>
-                                        </figure>
-                                    </div>
-                                    <div class="article__content">
-                                        <div class="post-meta">
-                                            <p class="post-category">Marketing</p>
-                                        </div>
-                                        <h3>
-                                            <a href="http://#">UniAbidjan innovator invents new laguage learning machine</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                                <section class="cta">
-                                    <a href="research.uniabidjan.com">More Uniabidjan Research</a>
-                                </section>
-                            </div>
-                        </div>
-                    </section>
-                </section>
-                <section class="collection health">
-                    <div class="health__items">
-                        <header class="health__heading-container">
-                            <h2 class="collection__header health__heading">Health Care</h2>
-                            <p class="collection__kicker">Caring for People and advancing human health through research and education</p>
-                        </header>
-                        <div class="content">
-                            <section class="health__info">
-                                <figure>
-                                    <picture>
-                                        <img src="#" alt="">
-                                    </picture>
-                                </figure>
-                                <h3>University of Abidjan Health Care</h3>
-                                <p>Our multidisciplinary approach delivers unparalleled care for each patient’s unique needs, coordinating expertise with the most advanced technology</p>
-                                <p class="health__info-link">
-                                    <a class="jump-link" href="http://#">UniAbidjan Health Care&raquo;</a>
-                                </p>
-                            </section>
-
-                            <section class="health__info">
-                                <figure>
-                                    <picture>
-                                        <img src="#" alt="">
-                                    </picture>
-                                </figure>
-                                <h3>Language and Health</h3>
-                                <p>Explore how your language can influence your health with our innovative researches</p>
-                                <p class="health__info-link">
-                                    <a class="jump-link" href="http://#">Health Language&raquo;</a>
-                                </p>
-                            </section>
-
-                            <section class="health__info">
-                                <figure>
-                                    <picture>
-                                        <img src="#" alt="">
-                                    </picture>
-                                </figure>
-                                <h3>Therapy for Language Disorder in Children</h3>
-                                <p>Our research has proven that we can help children with language disorder regain their language ability</p>
-                                <p class="health__info-link">
-                                    <a class="jump-link" href="http://#">Language Disorder&raquo;</a>
-                                </p>
-                            </section>
-                            <section class="cta">
-                                <a href="http://#">More About Health Care</a>
-                            </section>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="quote">
-                    <picture>
-                        <img src="#" alt="#" srcset="#" class="bg-img">
-                    </picture>
-                    <div class="content quote__item">
-                        <img src="#" alt="">
-                        <p>"It is an exciting time to be learning at the University of Abidjan... and thrilling to see students engaged and making real progress."</p>
-                        <div class="attribution">
-                            <h3>Isiaq Hammed</h3>
-                            <p>Graduate student in Marketing</p>
-                            <div class="jump-link">
-                                <a href="http://#">More about Isiaq&raquo;</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <section class="collection campus">
+                   
+                <section id="campus" class="collection campus">
                     <div class="campus__items">
                         <header class="campus__heading-container">
                             <h2 class="collection__header campus__heading">Campus Life</h2>
                             <p class="collection__kicker">A thriving community of creative and accomplished people around the world</p>
                         </header>
                         <div class="content">
-                            <section class="campus__info">
-                                <figure class="landscape">
-                                    <picture>
-                                        <img src="#" alt="" srcset="">
-                                    </picture>
-                                </figure>
-                                <h3>Student Life</h3>
-                                <p>A residential campus with diverse housing, exceptional dining, health care and over 600 student organizations
-                                    <div class="campus-link">
-                                        <a class="jump-link" href="http://#">Student Affairs&raquo;</a>
-                                    </div>
-                                </p>
-                            </section>
-                            <section class="campus__info">
-                                <figure class="landscape">
-                                    <picture>
-                                        <img src="#" alt="" srcset="">
-                                    </picture>
-                                </figure>
-                                <h3>Art & Culture</h3>
-                                <p>A rich tradition of fostering creativity and a vibrant arts district on campus</p>
+                            <?php $camp = array(
+                                'posts_per_page' => 3,
+                                'category_name' => 'school-life',
+                                'order' => 'ASC'
+                            ); ?>
+                            <?php 
+                            $campus = new WP_Query($camp);
+                            if ($campus->have_posts()) : while ($campus->have_posts()) : $campus->the_post();
+                            ?>
+                                <section class="campus__info">
+                                    <figure class="landscape">
+                                        <picture>
+                                            <?php the_post_thumbnail('medium_thumb'); ?>
+                                        </picture>
+                                    </figure>
+                                    <h3><?php the_title(); ?></h3>
+                                    <p<?php the_excerpt(); ?>
+                                        <div class="campus-link">
+                                            <?php the_category(','); ?>&raquo;
+                                        </div>
+                                    </p>
+                                </section>
+                            <?php endwhile; endif; wp_reset_postdata(); ?>
 
-                                <div class="campus-link">
-                                    <a class="jump-link" href="http://#">UniAbidjan Arts&raquo;</a>
-                                </div>
-                                </p>
-                            </section>
-                            <section class="campus__info">
-                                <figure class="landscape">
-                                    <picture>
-                                        <img src="#" alt="" srcset="">
-                                    </picture>
-                                </figure>
-                                <h3>Athletics & Fitness</h3>
-                                <p>36 varsity sports, 32 club sports and state-of-the-art recreational facilities and fitness programs
-                                </p>
-                                <div class="campus-link">
-                                    <a class="jump-link" href="http://#">Go UniAbidjan&raquo;</a>
-                                </div>
-                                </p>
-                            </section>
-                            <div class="cta">
-                                <a href="http://#">More About Campus Life</a>
+                            <div class="cta">                             
+                                <a href="/category/school-life/">More About Campus Life</a>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="collection admission">
+                <section id="admission" class="collection admission">
                     <div class="admission__items">
                         <header class="admission__heading-container">
                             <h2 class="admission__heading collection__header">Admission</h2>
@@ -565,51 +230,58 @@ get_header('front');
                             <section class="learning">
                                 <div class="content">
                                     <div class="admission__info">
+                                        <?php $feature = array(
+                                            'posts_per_page' => 1,
+                                            'post_type' => 'post',
+                                            'category_name' => 'admissions',
+                                            'p' => 277
+                                        );
+                                            $entry = new WP_Query($feature);
+                                        ?>
+                                        <?php if ($entry->have_posts()) : while ($entry->have_posts()) : $entry->the_post(); ?>
                                         <figure>
                                             <picture>
-                                                <img class="#" src="#" alt="" srcset="">
+                                                <?php the_post_thumbnail('big_feature'); ?>
                                             </picture>
                                             <figcaption>
-                                                <h3>Admit Weekend</h3>
-                                                <p>Admits are welcomed by cheering student volunteers as they enter Frost Amphitheater before trekking to their dorms for the weekend.</p>
+                                                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                                <?php the_excerpt(); ?>
                                             </figcaption>
                                         </figure>
+                                    <?php endwhile; endif; wp_reset_postdata(); ?>
                                     </div>
                                 </div>
                             </section>
 
+                            <?php $learn = array(
+                                'posts_per_page' => 2,
+                                'post_type' => 'post',
+                                'category_name' => 'admissions',
+                                'offset' => 2
+                            );
+                            $moreentry = new WP_Query($learn);
+                            ?>
+                                        <?php if ($moreentry->have_posts()) : while ($moreentry->have_posts()) : $moreentry->the_post(); ?>
                             <section class="learning">
                                 <div class="learning__items">
                                     <div class="content">
                                         <section class="learning__info">
-                                            <h3 class="learning__header">An eye to academic excellence, intellectual vitality and personal context</h3>
-                                            <p>Stanford students discover extraordinary freedom of opportunity—to explore, to collaborate and to challenge themselves.
-                                            </p>
+                                            <h3 class="learning__header"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                            <?php the_excerpt(); ?>
                                         </section>
                                     </div>
                                 </div>
                             </section>
+                        <?php endwhile; endif; wp_reset_postdata(); ?>
 
-                            <section class="learning">
-                                <div class="learning__items">
-                                    <div class="content">
-                                        <section class="learning__info">
-                                            <h3 class="learning__header">Meeting the full need for every admitted undergrad who qualifies for assistance
-                                            </h3>
-                                            <p>Nearly 70% of undergraduate students receive assistance toward tuition costs. For undergraduates from households with incomes below $125,000, tuition is fully covered by scholarship and/or grant aid.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </section>
                             <div class="cta">
-                                <a href="http://#">More About Admission</a>
+                                <a href="/category/admissions">More About Admission</a>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="collection uniabj">
+                <section id="uni" class="collection uniabj">
                     <div class="uniabj__items">
                         <header class="uniabj__header-container">
                             <h2 class="collection__header uniabj__heading">About UniAbidjan</h2>
@@ -617,17 +289,16 @@ get_header('front');
                         </header>
                         <div class="content">
                             <div class="cta">
-                                <a href="http://#">More About UniAbidjan</a>
+                                <a href="/about">More About UniAbidjan</a>
                             </div>
                         </div>
                     </div>
                 </section>
-
-                <section class="collection explore">
+                <section id="explore" class="collection explore">
                     <div class="explore__items">
                         <header class="explore__heading-container">
                             <h2 class="collection__header explore__heading">
-                                Explore UniAbidjan
+                                Explore UNIABIDJAN
                             </h2>
                             <ul class="content links-inline courses">
                                 <li>
@@ -656,10 +327,8 @@ get_header('front');
                 </section>
             </section>
         </main>
-       
-    <?php get_footer(); ?>
+    </div><!-- .content-wrap-->
+        <?php get_footer(); ?>
     </div>
-
 </body>
-
 </html>

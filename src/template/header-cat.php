@@ -42,13 +42,13 @@
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 			<nav class="extra-nav">
-			        <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'secondary',
-                        'menu_id' => 'secondary-menu',
-                    ));
+					<?php 
+                        wp_nav_menu(array(
+                            'theme_location' => 'Categories Menu',
+                            'menu_id' => 'categories-menu',
+                        ));
                     ?>
-				</nav><!-- extra-nav -->
+			</nav><!-- extra-nav -->
 				<button id="search-toggle">Search</button>
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false"> 
 					<div class="mobile">
@@ -60,8 +60,8 @@
 				<div class="mobile__nav">
                     <?php
                         wp_nav_menu(array(
-                            'theme_location' => 'main',
-                            'menu_id' => 'main-menu',
+                            'theme_location' => 'Categories',
+                            'menu_id' => 'categories-menu',
                         ));
                     ?>
                 </div>

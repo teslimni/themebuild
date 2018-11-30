@@ -4,17 +4,29 @@ $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
-
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
+$color__link: #1c5081;
+$color__link-visited: ligthen($color__link, 10%);
+$color__link-hover: #005a2c;
 $color__text-main: #404040;
-
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+$brand-background: #0a479f;
+html:root {
+    --brand-color: #1a4179;
+    --primary-color: #1a4179;
+    --secondary-color: #00772c;
+    --brand-background: #0a479f;
+    --button-hover: #2b71d6;
+    --theme-news: #f9f6ef;
+    --theme-events: #2f2424;
+    --theme-default: #fff;
+    --global-font: 62.5%;
+    --body-font: --global-font;
+    --small-heading-size: 1.3rem;
+}

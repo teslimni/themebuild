@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Uni Abidjan</title>
+    <!-- <title>Uni Abidjan</title> -->
 
     <?php wp_head(); ?>
 </head>
@@ -43,7 +43,7 @@
                         ));
                     ?>
                 </div>
-                <button id="search-toggle">Search</button>
+                <button id="search-toggle"></button>
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
                     <div class="mobile">
                     <div class="mobile__nav-icon">

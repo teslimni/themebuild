@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying news posts
+ * Template part for displaying event posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

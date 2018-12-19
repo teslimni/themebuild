@@ -102,8 +102,11 @@
         padding: 0;
         li {
             // padding-top: 11px;
-            a:hover {
-                background: darken($brand-background, 20%);
+            a {
+                transition: background ease 2s;
+                &:hover {
+                    background: darken($brand-background, 20%);
+                }
             }
         }
         >a {
@@ -210,11 +213,11 @@
     }
 }
 
-.menu-main-container {
-    .logged-in & {
-        margin-top: 2.5rem;
-    }
-}
+// .menu-main-container {
+//     .logged-in & {
+//         margin-top: 2.5rem;
+//     }
+// }
 
 .menu-undergrad-menu-container {
     @media screen and (min-width: 900px) {

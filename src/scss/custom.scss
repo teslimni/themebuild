@@ -73,11 +73,7 @@ img {
 }
 
 .site-branding {
-    margin-bottom: -3px;
-    margin-left: 3rem;
-    margin-right: auto;
-    margin-top: 0.7rem;
-    padding-bottom: 0.2rem;
+    margin: .7rem auto -5px 3rem;
     .sticky & {
         margin-right: auto;
     }
@@ -236,4 +232,10 @@ img {
         border-radius: 3px;
         box-shadow: 1px 1px 1px #eee;
     }
+}
+
+.fa .fa-arrow-down {
+    font-size: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }

@@ -15,10 +15,23 @@ get_header('front');
                     ) ; ?>
                     <?php $query = new WP_Query($args); ?>
                     <?php if ($query->have_posts()) : ?>
-                    <header>
-                        <h2 id="bookmark" class="collection__header">UNIABIDJAN Today</h2>
-                        <p class="collection__kicker">The latest news from UNIABIDJAN</p>
-                    </header>
+                    <!-- <header> -->
+                        <!-- <h2 id="bookmark" class="collection__header"> -->
+                        <!-- UNIABIDJAN Today -->
+                        <?php if(have_rows('news_section')) : while(have_rows('news_section')) : the_row();?>
+                            <?php if(get_row_layout() == 'news_details') : ?>
+                            <header>
+                                <h2 id="bookmark" class="collection__header">
+                                    <?php the_sub_field('news_heading'); ?>
+                                </h2>
+                                <p class="collection__kicker">
+                                    <?php the_sub_field('news_intro_text'); ?>
+                                </p>
+                            </header>
+                            <?php endif; ?>
+                        <?php endwhile; endif; ?>
+                        <!-- </h2> -->
+                        
                     <div class="content">
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
                         <article class="card">
@@ -41,29 +54,46 @@ get_header('front');
                             </div>
                         </article>
                         <?php endwhile; ?>
-                        <section class="cta">
-                            <a href="category/news">More UNIABIDJAN News</a>
-                        </section>
                         <?php wp_reset_postdata(); ?>
                         <?php endif; ?>
+                        <section class="cta">
+                            <!-- <a href="category/news">More UNIABIDJAN News</a> -->
+                            <?php if (have_rows('news_section')) : while (have_rows('news_section')) : the_row(); ?>
+                            <?php if (get_row_layout() == 'news_details') : ?>
+                                <a href="<?php the_sub_field('news_read_more_url'); ?>">
+                                    <?php the_sub_field('news_read_more_text'); ?>
+                                </a> 
+                            <?php endif; ?>
+                        <?php endwhile;
+                        endif; ?>
+                        </section>
+                        
                     </div>
                 </section>
                 <section id="newsletter" class="collection newsletter">
-                    <h2 class="newsletter__heading">Get daily news updates from
-                        <em>UniAbidjan Report</em>
-                    </h2>
-                    <form action="#">
-                        <div class="input-wrapper">
-                            <input type="email" name="nemail" id="nemail" placeholder="Enter your email address">
-                        </div>
-                        <input type="submit" value="Sign Up" name="subscribe">
-                    </form>
+                    <?php if(have_rows('newsletter')) : while(have_rows('newsletter')) : the_row(); ?>
+                        <?php if(get_row_layout() == 'newsletter_fields') : ?>
+                            <h2 class="newsletter__heading">
+                                <?php the_sub_field('newsletter_section_heading'); ?>
+                            </h2>
+                            <form action="#">
+                                <div class="input-wrapper">
+                                    <input type="email" name="nemail" id="nemail" placeholder="<?php the_sub_field('newsletter_form_placeholder_text'); ?>">
+                                </div>
+                                <input type="submit" value="<?php the_sub_field('newsletter_form_cta'); ?>" name="subscribe">
+                            </form>
+                        <?php endif; ?>
+                    <?php endwhile; endif; ?>
                 </section>
                 <section id="events" class="collection events">
                     <div class="event__items">
                         <div class="event__heading-container">
-                            <h2 class="event__heading">UniAbidjan Events</h2>
-                            <p>What's happening on campus</p>
+                            <?php if(have_rows('event_section')) : while(have_rows('event_section')) : the_row(); ?>
+                                <?php if(get_row_layout() == 'event_details') : ?>
+                                    <h2 class="event__heading"><?php the_sub_field('event_section_heading'); ?></h2>
+                                    <p><?php the_sub_field('event_intro_text'); ?></p>
+                                <?php endif; ?>
+                            <?php endwhile; endif; ?>
                         </div>
                         <div class="content">
                             <?php 
@@ -102,7 +132,13 @@ get_header('front');
                             endif;
                             ?>
                             <section class="more_events">
-                                <a href="category/events">More UniAbidjan Events</a>
+                                <?php if (have_rows('event_section')) : while (have_rows('event_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == 'event_details') : ?>
+                                    <a href="<?php the_sub_field('event_button_url');?>">
+                                        <?php the_sub_field('event_button_text'); ?>
+                                    </a>
+                                <?php endif; 
+                                endwhile; endif; ?>
                             </section>
                         </div>
                     </div>
@@ -110,14 +146,18 @@ get_header('front');
                 <section id="academic" class="collection academic theme-academic">
                     <div class="academic__items">
                         <div class="academic__heading-container">
-                            <h2 class="academic__heading">Academics</h2>
-                            <p>Preparing students to make meaningful contributions to society as engaged citizens and leaders in a complex world.</p>
+                            <?php if(have_rows('academics_section')) : while(have_rows('academics_section')): the_row(); ?>
+                                <?php if(get_row_layout() == 'academics_details') : ?>
+                                <h2 class="academic__heading"><?php the_sub_field('academics_section_heading'); ?></h2>
+                                <p><?php the_sub_field('academics_intro'); ?></p>
+                                <?php endif; ?>
+                            <?php endwhile; endif; ?>
                         </div>
                         <div class="content">
                             <?php $acadata = array(
                                 'posts_per_page' => 3,
                                 'post_type' => 'page',
-                                'post__in' => array(437,438,475),
+                                'post__in' => array(179,414,475),
                                 // 'post__in' => array(411,414,475),
                                 'order' => 'ASC'
                             ); ?>
@@ -143,15 +183,21 @@ get_header('front');
                     </div>
                     <section class="schools">
                         <div class="schools__heading-container">
-                            <h3 class="schools__heading">
-                                Four Schools in which to pursue your passions
-                            </h3>
+                            <?php if (have_rows('academics_section')) : while (have_rows('academics_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == 'academics_details') : ?>
+                                <h3 class="schools__heading">
+                                    <?php the_sub_field('school_intro_text'); ?>
+                                </h3>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>
                         </div>
                         <div class="schools__items">
                             <ul class="courses">
                                 <?php 
                                     $schdata = array(
                                         'post_type' => 'uni_school',
+                                        'post__in' => array(400, 399, 398, 397),
                                         'order'    => 'ASC'
                                     );
                                     $sch = new WP_Query($schdata);
@@ -165,7 +211,15 @@ get_header('front');
                                  ?>   
                             </ul>
                             <div class="cta">
-                                <a href="/schools/">More about Academics</a>
+                                <?php if (have_rows('academics_section')) : while (have_rows('academics_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == 'academics_details') : ?>
+                                <a href="<?php the_sub_field('academic_button_url');?>">
+                                    <?php the_sub_field('academic_button_text'); ?>
+                                </a>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>
+                                
                             </div>
                         </div>
                     </section>

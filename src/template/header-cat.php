@@ -49,7 +49,7 @@
                         ));
                     ?>
 			</nav><!-- extra-nav -->
-				<button id="search-toggle">Search</button>
+				<button id="search-toggle"></button>
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false"> 
 					<div class="mobile">
 						<div class="mobile__nav-icon">

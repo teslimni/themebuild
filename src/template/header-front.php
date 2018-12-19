@@ -41,9 +41,11 @@
                             'theme_location' => 'main',
                             'menu_id' => 'main-menu',
                         ));
-                    ?>
+                        ?>
+                
                 </div>
                 <button id="search-toggle"></button>
+                <!-- <div><?php //pll_the_languages(); ?></div> -->
                 <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false">
                     <div class="mobile">
                     <div class="mobile__nav-icon">
@@ -81,21 +83,30 @@
                             'menu_id' => 'main-menu',
                         ));
                     ?>
+                    <!-- <div id="weglot_here"></div> -->
                 </div>
-                <button id="search-toggle">Search</button>  
+                <button id="search-toggle"></button>  
             </nav>
             <section class="brand__splash">
                 <section class="brand__panel">
-                    <p class="brand__name">UNIABIDJAN</p>
-                    <p class="splash__scroller">
-                        <a href="#bookmark">
-                            Explore UNIABIDJAN
-                            <i class="scroll__down"></i>
-                        </a>
-                    </p>
-                    <picture>
-                        <img class="splash__img">
-                    </picture>
+                    <?php if (have_rows('hero_section')) : while(have_rows('hero_section')) : the_row(); ?>
+                        <?php if(get_row_layout() == 'hero_area'): ?>
+                            <p class="brand__name"><?php the_sub_field('hero_text'); ?></p>
+                            <p class="splash__scroller">
+                                <a href="#bookmark">
+                                    <?php the_sub_field('hero_cta'); ?>
+                                    <br>
+                                    <?php the_sub_field('hero_icon'); ?>
+
+                                    <!-- <i class="scroll__down"></i> -->
+                                </a>
+                            </p>
+                            <picture>
+                                <img class="splash__img">
+                            </picture>
+                        <?php endif; ?>
+                    <?php endwhile; endif; ?>
+                    
                 </section>
             </section>
         </header>

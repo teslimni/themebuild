@@ -239,8 +239,12 @@ get_header('front');
                 <section id="campus" class="collection campus">
                     <div class="campus__items">
                         <header class="campus__heading-container">
-                            <h2 class="collection__header campus__heading">Campus Life</h2>
-                            <p class="collection__kicker">A thriving community of creative and accomplished people around the world</p>
+                            <?php if(have_rows('campus_life_section')) : while(have_rows('campus_life_section')) : the_row(); ?>
+                                <?php if(get_row_layout() ==  "campus") : ?>
+                                <h2 class="collection__header campus__heading"><?php the_sub_field('campus_section_heading'); ?></h2>
+                                <p class="collection__kicker"><?php the_sub_field('campus_section_intro');?></p>
+                                <?php endif; ?>
+                            <?php endwhile; endif; ?>
                         </header>
                         <div class="content">
                             <?php $camp = array(
@@ -267,8 +271,13 @@ get_header('front');
                                 </section>
                             <?php endwhile; endif; wp_reset_postdata(); ?>
 
-                            <div class="cta">                             
-                                <a href="/category/school-life/">More About Campus Life</a>
+                            <div class="cta">  
+                                <?php if (have_rows('campus_life_section')) : while (have_rows('campus_life_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == "campus") : ?>
+                                <a href="<?php the_sub_field('campus_section_button_url'); ?>"><?php the_sub_field('campus_section_button_text');?></a>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>                       
                             </div>
                         </div>
                     </div>
@@ -277,8 +286,15 @@ get_header('front');
                 <section id="admission" class="collection admission">
                     <div class="admission__items">
                         <header class="admission__heading-container">
-                            <h2 class="admission__heading collection__header">Admission</h2>
-                            <div class="collection__kicker">Diverse perspectives brought together by a shared commitment to excellence,learning and growing</div>
+                            <?php if (have_rows('admission_section')) : while (have_rows('admission_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == "admission") : ?>
+                                <h2 class="admission__heading collection__header"><?php the_sub_field('admission_section_heading'); ?></h2>
+                                <div class="collection__kicker"><?php the_sub_field('admission_section_intro');?></div>
+
+                                <a href="<?php the_sub_field('campus_section_button_url'); ?>"><?php the_sub_field('campus_section_button_text'); ?></a>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>   
                         </header>
                         <div class="admission-grid">
                             <section class="learning">
@@ -327,23 +343,38 @@ get_header('front');
                                 </div>
                             </section>
                         <?php endwhile; endif; wp_reset_postdata(); ?>
-
+                            
                             <div class="cta">
-                                <a href="/category/admissions">More About Admission</a>
+                                <?php if (have_rows('admission_section')) : while (have_rows('admission_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == "admission") : ?>
+                                <a href="<?php the_sub_field('admission_section_button_url'); ?>"><?php the_sub_field('admission_section_button_text'); ?></a>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>  
                             </div>
-                        </div>
-                    </div>
+                        
                 </section>
 
                 <section id="uni" class="collection uniabj">
                     <div class="uniabj__items">
                         <header class="uniabj__header-container">
-                            <h2 class="collection__header uniabj__heading">About UniAbidjan</h2>
-                            <p class="collection__kicker">A place for learning, discovery, innovation,expression and discourse</p>
+
+                            <?php if (have_rows('about_section')) : while (have_rows('about_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == "about") : ?>
+                                <h2 class="collection__header uniabj__heading"><?php the_sub_field('about_section_heading');?></h2>
+                                <p class="collection__kicker"><?php the_sub_field('about_section_text');?></p>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>  
                         </header>
                         <div class="content">
                             <div class="cta">
-                                <a href="/about">More About UniAbidjan</a>
+                                <?php if (have_rows('about_section')) : while (have_rows('about_section')) : the_row(); ?>
+                                <?php if (get_row_layout() == "about") : ?>
+                                <a href="<?php the_sub_field('about_section_button_url'); ?>"><?php the_sub_field('about_section_button_text'); ?></a>
+                                <?php endif; ?>
+                            <?php endwhile;
+                            endif; ?>  
                             </div>
                         </div>
                     </div>
